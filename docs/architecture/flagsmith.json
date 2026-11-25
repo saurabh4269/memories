@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Zoom in: Flagsmith, each flag and where it is read",
+    "locale": "en",
+    "output": "docs/architecture/flagsmith.html",
+    "quality_profile": "showcase",
+    "feedback_links": false,
+    "parentHref": "index.html"
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    {
+      "id": "strategy",
+      "type": "cloud",
+      "label": "director_strategy",
+      "sublabel": "experiment: single_shot / agentic",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        30
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "metric",
+      "type": "cloud",
+      "label": "reel_shared metric",
+      "sublabel": "track_event per member",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        990
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "elder",
+      "type": "cloud",
+      "label": "elder_mode",
+      "sublabel": "segment: hi-IN AND role elder",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        870
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "coachf",
+      "type": "cloud",
+      "label": "shot_coach",
+      "sublabel": "beta segment, max_cards",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        750
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "render",
+      "type": "cloud",
+      "label": "render_profile + peak_mode",
+      "sublabel": "remote config JSON",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        150
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "lite",
+      "type": "cloud",
+      "label": "ml_lite_mode",
+      "sublabel": "kill switch",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        270
+      ],
+      "size": [
+        200,
+        296
+      ]
+    },
+    {
+      "id": "health",
+      "type": "cloud",
+      "label": "Feature Health",
+      "sublabel": "webhook provider",
+      "tag": "SPONSOR",
+      "pos": [
+        620,
+        630
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "pipeline",
+      "type": "backend",
+      "label": "pipeline.py",
+      "sublabel": "strategy, render overrides, lite",
+      "pos": [
+        250,
+        30
+      ],
+      "size": [
+        210,
+        296
+      ]
+    },
+    {
+      "id": "api_shared",
+      "type": "backend",
+      "label": "POST /v1/reels/{id}/shared",
+      "sublabel": "api.py",
+      "pos": [
+        250,
+        990
+      ],
+      "size": [
+        210,
+        56
+      ]
+    },
+    {
+      "id": "members",
+      "type": "backend",
+      "label": "GET /v1/members/flags",
+      "sublabel": "identity + traits",
+      "pos": [
+        250,
+        870
+      ],
+      "size": [
+        210,
+        56
+      ]
+    },
+    {
+      "id": "coach",
+      "type": "backend",
+      "label": "coach.py",
+      "sublabel": "cards on/off, max_cards, lite",
+      "pos": [
+        250,
+        510
+      ],
+      "size": [
+        210,
+        56
+      ]
+    },
+    {
+      "id": "analyse",
+      "type": "backend",
+      "label": "POST /albums/{id}/analyse",
+      "sublabel": "api.py, batch 3 in lite mode",
+      "pos": [
+        250,
+        390
+      ],
+      "size": [
+        210,
+        56
+      ]
+    },
+    {
+      "id": "app",
+      "type": "frontend",
+      "label": "Memories app",
+      "sublabel": "elder UI, join profile",
+      "pos": [
+        30,
+        870
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "nudgebee",
+      "type": "external",
+      "label": "NudgeBee workflow",
+      "sublabel": "after human approval",
+      "pos": [
+        900,
+        630
+      ],
+      "size": [
+        170,
+        56
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Memories director (reads through flags.py: safe defaults, 15 s cache)",
+      "wraps": [
+        "pipeline",
+        "analyse",
+        "coach",
+        "members",
+        "api_shared"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Flagsmith SaaS",
+      "wraps": [
+        "strategy",
+        "render",
+        "lite",
+        "health",
+        "coachf",
+        "elder",
+        "metric"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "pipeline",
+      "to": "strategy",
+      "label": "get_experiment_flag",
+      "variant": "emphasis"
+    },
+    {
+      "from": "pipeline",
+      "to": "render",
+      "label": "env flags"
+    },
+    {
+      "from": "pipeline",
+      "to": "lite",
+      "label": "env flags"
+    },
+    {
+      "from": "analyse",
+      "to": "lite",
+      "label": "env flags"
+    },
+    {
+      "from": "coach",
+      "to": "lite",
+      "label": "identity flags"
+    },
+    {
+      "from": "coach",
+      "to": "coachf",
+      "label": "identity + cohort",
+      "fromSide": "bottom",
+      "toSide": "left",
+      "via": [
+        [
+          355,
+          778
+        ]
+      ]
+    },
+    {
+      "from": "members",
+      "to": "elder",
+      "label": "identity + traits"
+    },
+    {
+      "from": "api_shared",
+      "to": "metric",
+      "label": "track_event",
+      "variant": "emphasis"
+    },
+    {
+      "from": "app",
+      "to": "members",
+      "label": "HTTPS"
+    },
+    {
+      "from": "nudgebee",
+      "to": "health",
+      "label": "unhealthy",
+      "variant": "security"
+    },
+    {
+      "from": "nudgebee",
+      "to": "lite",
+      "label": "PATCH ON",
+      "variant": "security",
+      "fromSide": "top",
+      "toSide": "right",
+      "via": [
+        [
+          985,
+          418
+        ]
+      ]
+    }
+  ]
+}

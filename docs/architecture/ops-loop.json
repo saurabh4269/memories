@@ -6,7 +6,8 @@
     "locale": "en",
     "output": "docs/architecture/ops-loop.html",
     "quality_profile": "showcase",
-    "feedback_links": false
+    "feedback_links": false,
+    "parentHref": "index.html"
   },
   "participants": [
     {

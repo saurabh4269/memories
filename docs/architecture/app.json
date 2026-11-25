@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Zoom in: Memories Android app",
+    "locale": "en",
+    "output": "docs/architecture/app.html",
+    "quality_profile": "showcase",
+    "feedback_links": false,
+    "parentHref": "index.html"
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    {
+      "id": "immichcore",
+      "type": "frontend",
+      "label": "Immich app core",
+      "sublabel": "timeline, albums, Riverpod",
+      "pos": [
+        50,
+        170
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "backup",
+      "type": "frontend",
+      "label": "Background backup",
+      "sublabel": "upload to Immich",
+      "pos": [
+        50,
+        50
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "drift",
+      "type": "database",
+      "label": "Drift local DB",
+      "sublabel": "assets, albums cache",
+      "pos": [
+        50,
+        290
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "entry",
+      "type": "frontend",
+      "label": "integration + home",
+      "sublabel": "tab, album buttons, reels",
+      "pos": [
+        270,
+        170
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "design",
+      "type": "frontend",
+      "label": "memories/design",
+      "sublabel": "tokens, theme, reel cards",
+      "pos": [
+        270,
+        50
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "reel",
+      "type": "frontend",
+      "label": "memories/reel",
+      "sublabel": "voice prompt, live preview, editor",
+      "pos": [
+        490,
+        290
+      ],
+      "size": [
+        170,
+        296
+      ]
+    },
+    {
+      "id": "camera",
+      "type": "frontend",
+      "label": "memories/camera",
+      "sublabel": "capture queue, coach cards",
+      "pos": [
+        490,
+        50
+      ],
+      "size": [
+        170,
+        176
+      ]
+    },
+    {
+      "id": "join",
+      "type": "frontend",
+      "label": "memories/join",
+      "sublabel": "QR scan, deep link, invite",
+      "pos": [
+        490,
+        770
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "elder",
+      "type": "frontend",
+      "label": "memories/elder",
+      "sublabel": "bigger UI, spoken confirmation",
+      "pos": [
+        490,
+        890
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "post",
+      "type": "frontend",
+      "label": "memories/post",
+      "sublabel": "post to socials sheet",
+      "pos": [
+        490,
+        650
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "immichapi",
+      "type": "backend",
+      "label": "Immich API",
+      "sublabel": "/api/assets, /api/albums",
+      "pos": [
+        820,
+        50
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_reels",
+      "type": "backend",
+      "label": "Director: reels",
+      "sublabel": "/v1/reels, /final, /shared",
+      "pos": [
+        820,
+        290
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_editor",
+      "type": "backend",
+      "label": "Director: editor",
+      "sublabel": "/edl, /edit, /alternatives, /otio",
+      "pos": [
+        820,
+        410
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_extras",
+      "type": "backend",
+      "label": "Director: extras",
+      "sublabel": "/voice-prompt, /confirmation",
+      "pos": [
+        820,
+        530
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_coach",
+      "type": "backend",
+      "label": "Director: coach",
+      "sublabel": "/v1/albums/{id}/coach",
+      "pos": [
+        820,
+        170
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_join",
+      "type": "backend",
+      "label": "Director: join",
+      "sublabel": "/v1/join/invite, /redeem",
+      "pos": [
+        820,
+        770
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_flags",
+      "type": "backend",
+      "label": "Director: member flags",
+      "sublabel": "/v1/members/flags",
+      "pos": [
+        820,
+        890
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "d_post",
+      "type": "backend",
+      "label": "Director: post",
+      "sublabel": "/v1/post/channels, /post",
+      "pos": [
+        820,
+        650
+      ],
+      "size": [
+        170,
+        56
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Immich fork",
+      "wraps": [
+        "backup",
+        "immichcore",
+        "drift"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "lib/memories",
+      "wraps": [
+        "design",
+        "entry",
+        "camera",
+        "reel",
+        "post",
+        "join",
+        "elder"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Server over HTTPS (Caddy)",
+      "wraps": [
+        "immichapi",
+        "d_coach",
+        "d_reels",
+        "d_editor",
+        "d_extras",
+        "d_post",
+        "d_join",
+        "d_flags"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "backup",
+      "to": "immichapi",
+      "label": "background upload",
+      "variant": "emphasis",
+      "fromSide": "top",
+      "toSide": "top",
+      "via": [
+        [
+          135,
+          32
+        ],
+        [
+          905,
+          32
+        ]
+      ]
+    },
+    {
+      "from": "immichcore",
+      "to": "drift",
+      "label": "local cache"
+    },
+    {
+      "from": "immichcore",
+      "to": "entry",
+      "label": "buttons"
+    },
+    {
+      "from": "design",
+      "to": "entry",
+      "label": "styles",
+      "variant": "dashed"
+    },
+    {
+      "from": "entry",
+      "to": "camera",
+      "label": "open"
+    },
+    {
+      "from": "entry",
+      "to": "reel",
+      "label": "Make a reel"
+    },
+    {
+      "from": "camera",
+      "to": "immichapi",
+      "label": "upload, add to album"
+    },
+    {
+      "from": "camera",
+      "to": "d_coach",
+      "label": "coach cards"
+    },
+    {
+      "from": "reel",
+      "to": "d_reels",
+      "label": "make, final, share",
+      "variant": "emphasis"
+    },
+    {
+      "from": "reel",
+      "to": "d_editor",
+      "label": "live preview, edit"
+    },
+    {
+      "from": "reel",
+      "to": "d_extras",
+      "label": "voice, confirmation"
+    },
+    {
+      "from": "reel",
+      "to": "post",
+      "label": "post sheet"
+    },
+    {
+      "from": "post",
+      "to": "d_post",
+      "label": "channels, post"
+    },
+    {
+      "from": "join",
+      "to": "d_join",
+      "label": "invite, redeem"
+    },
+    {
+      "from": "join",
+      "to": "d_flags",
+      "label": "member traits"
+    },
+    {
+      "from": "elder",
+      "to": "d_flags",
+      "label": "elder_mode"
+    }
+  ]
+}

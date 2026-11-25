@@ -4,7 +4,7 @@
   "meta": {
     "title": "Memories: system architecture",
     "locale": "en",
-    "output": "docs/architecture/memories-architecture.html",
+    "output": "docs/architecture/index.html",
     "quality_profile": "showcase",
     "feedback_links": false
   },
@@ -25,7 +25,8 @@
       "size": [
         200,
         56
-      ]
+      ],
+      "href": "app.html"
     },
     {
       "id": "caddy",
@@ -46,7 +47,7 @@
       "id": "immich",
       "type": "backend",
       "label": "Immich server v3.4.2",
-      "sublabel": ":2283 REST, albums, thumbnails, people, smart search",
+      "sublabel": ":2283 REST, albums, people, smart search",
       "pos": [
         32,
         670
@@ -54,7 +55,8 @@
       "size": [
         340,
         56
-      ]
+      ],
+      "href": "immich.html"
     },
     {
       "id": "pg",
@@ -68,7 +70,8 @@
       "size": [
         105,
         56
-      ]
+      ],
+      "href": "immich.html"
     },
     {
       "id": "valkey",
@@ -82,7 +85,8 @@
       "size": [
         105,
         56
-      ]
+      ],
+      "href": "immich.html"
     },
     {
       "id": "library",
@@ -96,13 +100,14 @@
       "size": [
         105,
         56
-      ]
+      ],
+      "href": "immich.html"
     },
     {
       "id": "ml",
       "type": "backend",
       "label": "Immich ML (k3s)",
-      "sublabel": "NodePort 30003, CLIP, faces",
+      "sublabel": "NodePort 30003, CLIP",
       "pos": [
         472,
         670
@@ -110,7 +115,8 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "immich.html"
     },
     {
       "id": "nbagent",
@@ -125,13 +131,14 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "ops-loop.html"
     },
     {
       "id": "api",
       "type": "backend",
       "label": "Director API",
-      "sublabel": ":8010, reels, EDL, join",
+      "sublabel": ":8018, reels, EDL, join",
       "explanation": "api.py, editor_api.py (EDL, alternatives, re-render, OTIO export), join_api.py (invite codes, QR, Immich user redeem), extras_api.py (invite card, Dictate, voiceover, translate), postiz_api.py.",
       "pos": [
         472,
@@ -140,13 +147,14 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "poller",
       "type": "backend",
       "label": "Analysis poller",
-      "sublabel": "every 10 s, new assets",
+      "sublabel": "10 s, new assets",
       "pos": [
         472,
         530
@@ -154,13 +162,14 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "director",
       "type": "backend",
       "label": "Agentic director",
-      "sublabel": "tool loop, grammar, QA",
+      "sublabel": "105b tools, grammar, QA",
       "pos": [
         472,
         400
@@ -168,7 +177,8 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "render",
@@ -182,7 +192,8 @@
       "size": [
         150,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "sqlite",
@@ -196,13 +207,14 @@
       "size": [
         150,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "facet",
       "type": "backend",
       "label": "Facet container",
-      "sublabel": "MIT photo scoring, CPU",
+      "sublabel": "MIT photo scores",
       "pos": [
         252,
         150
@@ -210,7 +222,8 @@
       "size": [
         150,
         56
-      ]
+      ],
+      "href": "director.html"
     },
     {
       "id": "postiz",
@@ -225,13 +238,14 @@
         160,
         56
       ],
-      "explanation": "Self-hosted Postiz v2.26 at postiz.74-225-200-30.sslip.io (Caddy -> 127.0.0.1:4007), with Postgres, Redis and Temporal. Connected to a public Telegram channel through a bot."
+      "explanation": "Self-hosted Postiz v2.26 at postiz.74-225-200-30.sslip.io (Caddy -> 127.0.0.1:4007), with Postgres, Redis and Temporal. Connected to a public Telegram channel through a bot.",
+      "href": "director.html"
     },
     {
       "id": "flagsmith",
       "type": "cloud",
       "label": "Flagsmith",
-      "sublabel": "flags, experiment, health",
+      "sublabel": "flags, experiment",
       "tag": "SPONSOR",
       "pos": [
         832,
@@ -240,7 +254,8 @@
       "size": [
         160,
         50
-      ]
+      ],
+      "href": "flagsmith.html"
     },
     {
       "id": "nudgebee",
@@ -255,7 +270,8 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "href": "ops-loop.html"
     },
     {
       "id": "telegram",
@@ -275,7 +291,7 @@
       "id": "s_speech",
       "type": "cloud",
       "label": "Dictate + saaras:v4",
-      "sublabel": "plus Doc AI, mayura, bulbul",
+      "sublabel": "+ Doc AI, mayura, bulbul",
       "tag": "SPONSOR",
       "pos": [
         832,
@@ -285,7 +301,8 @@
         160,
         50
       ],
-      "explanation": "Dictate turns a Hindi/Hinglish voice prompt into text and a JSON intent, with saaras:v4 STT as fallback. Document AI reads invitation cards into a shot list. mayura:v1 translates coach cards. bulbul:v4-flash speaks voiceovers."
+      "explanation": "Dictate turns a Hindi/Hinglish voice prompt into text and a JSON intent, with saaras:v4 STT as fallback. Document AI reads invitation cards into a shot list. mayura:v1 translates coach cards. bulbul:v4-flash speaks voiceovers.",
+      "href": "sarvam.html"
     },
     {
       "id": "s_105b",
@@ -300,7 +317,8 @@
       "size": [
         160,
         50
-      ]
+      ],
+      "href": "sarvam.html"
     },
     {
       "id": "s_gemma",
@@ -315,7 +333,8 @@
       "size": [
         160,
         50
-      ]
+      ],
+      "href": "sarvam.html"
     }
   ],
   "boundaries": [
@@ -358,7 +377,7 @@
     },
     {
       "kind": "security-group",
-      "label": "k3s single node",
+      "label": "k3s ns immich + nudgebee-agent",
       "wraps": [
         "ml",
         "nbagent"
@@ -366,7 +385,7 @@
     },
     {
       "kind": "security-group",
-      "label": "Memories director container",
+      "label": "k3s ns memories: director (hostNetwork)",
       "wraps": [
         "api",
         "poller",
@@ -408,7 +427,7 @@
     {
       "from": "caddy",
       "to": "api",
-      "label": "/director/* -> :8010",
+      "label": "/director/* -> :8018",
       "variant": "emphasis"
     },
     {

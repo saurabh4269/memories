@@ -1,0 +1,422 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Zoom in: Memories director service",
+    "locale": "en",
+    "output": "docs/architecture/director.html",
+    "quality_profile": "showcase",
+    "feedback_links": false,
+    "parentHref": "index.html"
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    {
+      "id": "caddy",
+      "type": "security",
+      "label": "Caddy /director/*",
+      "sublabel": "to 127.0.0.1:8018",
+      "pos": [
+        470,
+        30
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "api.py",
+      "sublabel": "reels, flags, coach; mounts routers",
+      "pos": [
+        470,
+        150
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "extras",
+      "type": "backend",
+      "label": "extras_api.py",
+      "sublabel": "invite, voice, voiceover",
+      "pos": [
+        690,
+        150
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "pipeline",
+      "type": "backend",
+      "label": "pipeline.py",
+      "sublabel": "one reel job, end to end",
+      "pos": [
+        470,
+        270
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "poller",
+      "type": "backend",
+      "label": "analysis.py poller",
+      "sublabel": "10 s, keyframes, contact sheets",
+      "pos": [
+        250,
+        750
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "team",
+      "type": "backend",
+      "label": "team.py",
+      "sublabel": "recurring faces, team_score",
+      "pos": [
+        250,
+        270
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "facet",
+      "type": "backend",
+      "label": "facet_scores.py",
+      "sublabel": "per-album Facet cache",
+      "pos": [
+        690,
+        270
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "agentic",
+      "type": "backend",
+      "label": "agentic.py + director.py",
+      "sublabel": "105b tools, or single-shot plan",
+      "pos": [
+        470,
+        390
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "grammar",
+      "type": "backend",
+      "label": "grammar.py + qa.py",
+      "sublabel": "hook, ending, length, safe area",
+      "pos": [
+        470,
+        510
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "render",
+      "type": "backend",
+      "label": "render.py",
+      "sublabel": "parallel segments, xfade, music",
+      "pos": [
+        470,
+        630
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "editor",
+      "type": "backend",
+      "label": "editor_api.py",
+      "sublabel": "EDL, edit, alternatives, OTIO",
+      "pos": [
+        690,
+        630
+      ],
+      "size": [
+        170,
+        56
+      ],
+      "tag": "router"
+    },
+    {
+      "id": "join",
+      "type": "backend",
+      "label": "join_api.py",
+      "sublabel": "invite code, QR, redeem",
+      "pos": [
+        250,
+        510
+      ],
+      "size": [
+        170,
+        56
+      ],
+      "tag": "router"
+    },
+    {
+      "id": "postizb",
+      "type": "backend",
+      "label": "postiz_api.py",
+      "sublabel": "upload final, post now",
+      "pos": [
+        690,
+        750
+      ],
+      "size": [
+        170,
+        56
+      ],
+      "tag": "router"
+    },
+    {
+      "id": "db",
+      "type": "database",
+      "label": "SQLite + /srv/director",
+      "sublabel": "reels, analysis, cache",
+      "pos": [
+        470,
+        750
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "immich",
+      "type": "external",
+      "label": "Immich API",
+      "sublabel": "assets, people, smart search",
+      "pos": [
+        30,
+        390
+      ],
+      "size": [
+        170,
+        416
+      ]
+    },
+    {
+      "id": "sarvam",
+      "type": "cloud",
+      "label": "Sarvam AI",
+      "sublabel": "gemma4, 105b, Dictate, TTS",
+      "tag": "SPONSOR",
+      "pos": [
+        910,
+        150
+      ],
+      "size": [
+        170,
+        296
+      ]
+    },
+    {
+      "id": "flagsmith",
+      "type": "cloud",
+      "label": "Flagsmith",
+      "sublabel": "flags, experiment, events",
+      "tag": "SPONSOR",
+      "pos": [
+        690,
+        30
+      ],
+      "size": [
+        170,
+        56
+      ]
+    },
+    {
+      "id": "postiz",
+      "type": "external",
+      "label": "Postiz",
+      "sublabel": "Public API, Telegram",
+      "pos": [
+        910,
+        750
+      ],
+      "size": [
+        170,
+        56
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "memories-director pod, k3s ns memories (hostNetwork, uvicorn :8018, 1 worker)",
+      "wraps": [
+        "api",
+        "extras",
+        "pipeline",
+        "poller",
+        "team",
+        "facet",
+        "agentic",
+        "grammar",
+        "render",
+        "editor",
+        "join",
+        "postizb",
+        "db"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "caddy",
+      "to": "api",
+      "label": "HTTPS",
+      "variant": "emphasis"
+    },
+    {
+      "from": "api",
+      "to": "pipeline",
+      "label": "POST /v1/reels",
+      "variant": "emphasis"
+    },
+    {
+      "from": "api",
+      "to": "extras",
+      "label": "/v1/extras"
+    },
+    {
+      "from": "api",
+      "to": "flagsmith",
+      "label": "flags, reel_shared"
+    },
+    {
+      "from": "pipeline",
+      "to": "team",
+      "label": "annotate"
+    },
+    {
+      "from": "pipeline",
+      "to": "facet",
+      "label": "load_scores"
+    },
+    {
+      "from": "pipeline",
+      "to": "agentic",
+      "label": "strategy from flag",
+      "variant": "emphasis"
+    },
+    {
+      "from": "agentic",
+      "to": "grammar",
+      "label": "validate cuts",
+      "variant": "emphasis"
+    },
+    {
+      "from": "grammar",
+      "to": "render",
+      "label": "EDL",
+      "variant": "emphasis"
+    },
+    {
+      "from": "render",
+      "to": "db",
+      "label": "segments, speculative final"
+    },
+    {
+      "from": "agentic",
+      "to": "sarvam",
+      "label": "sarvam-105b"
+    },
+    {
+      "from": "agentic",
+      "to": "immich",
+      "label": "tools: search, people"
+    },
+    {
+      "from": "extras",
+      "to": "sarvam",
+      "label": "Dictate, Doc AI, bulbul"
+    },
+    {
+      "from": "render",
+      "to": "immich",
+      "label": "originals (Range)"
+    },
+    {
+      "from": "poller",
+      "to": "sarvam",
+      "label": "gemma4",
+      "variant": "dashed",
+      "fromSide": "bottom",
+      "toSide": "right",
+      "via": [
+        [
+          335,
+          840
+        ],
+        [
+          1110,
+          840
+        ],
+        [
+          1110,
+          298
+        ]
+      ]
+    },
+    {
+      "from": "poller",
+      "to": "db",
+      "label": "analysis cache",
+      "variant": "dashed"
+    },
+    {
+      "from": "poller",
+      "to": "immich",
+      "label": "new assets",
+      "variant": "dashed"
+    },
+    {
+      "from": "editor",
+      "to": "render",
+      "label": "re-render changed",
+      "variant": "dashed"
+    },
+    {
+      "from": "join",
+      "to": "immich",
+      "label": "create user, add editor"
+    },
+    {
+      "from": "postizb",
+      "to": "postiz",
+      "label": "upload + post"
+    }
+  ]
+}

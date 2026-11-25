@@ -75,12 +75,12 @@ We mark each part honestly. "Built" means the code is in this repo and we ran it
 | "Make my Memories reel" button on an album, Make a reel page (prompt, destination, language) | Built |
 | Two cuts page with video previews, one-line reasons and the Under the hood trace | Built |
 | Share a cut through the Android share sheet, which sends `reel_shared` to Flagsmith | Built |
-| Speak the prompt (mic button) | In progress. The server takes audio, the app button does not record yet. |
-| Live preview player from the EDL, reel editor | In progress |
-| Camera with shot coach cards (camera code adapted from LibreCamera) | In progress |
-| QR join, elder mode, post to socials sheet | In progress |
+| Speak the prompt (voice prompt button) | In the app, wired to `/v1/extras/voice-prompt` |
+| Live preview player from the EDL, reel editor | In the app, wired to the editor endpoints |
+| Camera with shot coach cards (camera code adapted from LibreCamera) | In the app (camera tab and album button) |
+| QR join, elder mode, post to socials sheet | In the app |
 
-The "in progress" app features are written as separate modules in our working copy of the fork and are being wired into the app. They are not in `app/` yet.
+"In the app" means the module is in [`app/mobile/lib/memories/`](app/mobile/lib/memories/) and wired into the app's screens. The screenshots above only cover the reel flow, so these features are not shown there yet. The [app diagram](docs/architecture/app-light.svg) shows which endpoint each module calls.
 
 ## How each sponsor tool does real work
 
@@ -140,13 +140,17 @@ Calibration: under a 100-photo burst the ML working set is about 0.9 GiB (anonym
 
 ## Architecture
 
+<a href="https://saurabh4269.github.io/memories/architecture/">
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/memories-architecture-dark.svg">
   <img src="docs/architecture/memories-architecture-light.svg" alt="Memories architecture: Android app, Azure VM with Caddy, Immich, k3s and the director, and the Sarvam AI, Flagsmith and NudgeBee services">
 </picture>
+</a>
+
+**[Open the interactive version](https://saurabh4269.github.io/memories/architecture/)**: click any box to open a diagram of what is inside it, and use Back to return. The small arrow in the corner of a box means it has a deeper diagram.
 
 How to read it:
-- **Boxes inside boxes are deployment boundaries.** The phone, the Azure VM (Standard_D16as_v5, centralindia), and the outside services. Inside the VM: docker compose for Immich, single-node k3s for Immich ML and the NudgeBee agent, and the director container. Only ports 22, 80 and 443 are open on the VM. Caddy is the only public entry point.
+- **Boxes inside boxes are deployment boundaries.** The phone, the Azure VM (Standard_D16as_v5, centralindia), and the outside services. Inside the VM: docker compose for Immich, and single-node k3s for Immich ML, the NudgeBee agent and the director (namespace `memories`, host network on 127.0.0.1:8018). Only ports 22, 80 and 443 are open on the VM. Caddy is the only public entry point.
 - **Numbers on the arrows follow one reel:** 1 the phone backs up photos and videos to Immich. 2 Immich makes thumbnails and runs faces and CLIP in Immich ML. 3 the poller analyses new assets with gemma4 (6 images per call), and Facet adds photo scores. 4 the member asks for a reel. 5 Dictate turns a spoken prompt into an intent. 6 Flagsmith picks the director strategy and sarvam-105b plans with tools over Immich. 7 our code validates the edit list (EDL). 8 segments render in parallel from the originals. 9 two previews come back and the finals render in the background. 10 share through the Android share sheet, or post through Postiz to the Telegram channel. 11 `reel_shared` goes to Flagsmith as the experiment metric.
 - **Solid arrows** are calls someone waits on. **Dashed arrows** are background work (Immich ML jobs, the poller, Facet scores). **Red arrows** are the ops path: the NudgeBee agent dials out over wss 443, and after a human approves, NudgeBee turns on `ml_lite_mode` in Flagsmith.
 - **The three sponsor tools are marked SPONSOR.** Sarvam AI is split into the models doing the work.
@@ -158,7 +162,80 @@ The ops loop when a family uploads at once:
   <img src="docs/architecture/ops-loop-light.svg" alt="Sequence: upload burst, Immich ML OOM, NudgeBee event and investigation, human approval, Flagsmith ml_lite_mode and Feature Health, director reads the flag">
 </picture>
 
-Both diagrams were made with [Archify](https://github.com/tt-a1i/archify). The sources are [`memories-architecture.json`](docs/architecture/memories-architecture.json) and [`ops-loop.json`](docs/architecture/ops-loop.json). Open the `.html` files next to them for an interactive version, and there are PNG copies at 2x in the same folder.
+### Zoom in
+
+Each part of the overview has its own diagram. The links in the first column open the interactive page; the images also expand below.
+
+| Part | What it shows | Image |
+|---|---|---|
+| [Immich](https://saurabh4269.github.io/memories/architecture/immich.html) | server, job queues (thumbnails, transcode, faces, CLIP), Immich ML in k3s, Postgres with VectorChord, Valkey, albums and shared links, workflows | [light](docs/architecture/immich-light.svg) / [dark](docs/architecture/immich-dark.svg) / [PNG](docs/architecture/immich-light.png) |
+| [Director service](https://saurabh4269.github.io/memories/architecture/director.html) | routers, reel pipeline, analysis poller, team score, Facet scores, agentic director, grammar and QA, renderer with segment cache and speculative finals, editor, join, Postiz bridge, SQLite | [light](docs/architecture/director-light.svg) / [dark](docs/architecture/director-dark.svg) / [PNG](docs/architecture/director-light.png) |
+| [Android app](https://saurabh4269.github.io/memories/architecture/app.html) | Immich fork modules and the `lib/memories` modules, with the server endpoints each one calls | [light](docs/architecture/app-light.svg) / [dark](docs/architecture/app-dark.svg) / [PNG](docs/architecture/app-light.png) |
+| [Sarvam AI](https://saurabh4269.github.io/memories/architecture/sarvam.html) | each model and the job it does in Memories | [light](docs/architecture/sarvam-light.svg) / [dark](docs/architecture/sarvam-dark.svg) / [PNG](docs/architecture/sarvam-light.png) |
+| [Flagsmith](https://saurabh4269.github.io/memories/architecture/flagsmith.html) | each flag, segment and the experiment, and where the code reads it | [light](docs/architecture/flagsmith-light.svg) / [dark](docs/architecture/flagsmith-dark.svg) / [PNG](docs/architecture/flagsmith-light.png) |
+| [NudgeBee ops loop](https://saurabh4269.github.io/memories/architecture/ops-loop.html) | upload surge, OOM, investigation, human approval, Flagsmith kill switch | [light](docs/architecture/ops-loop-light.svg) / [dark](docs/architecture/ops-loop-dark.svg) / [PNG](docs/architecture/ops-loop-light.png) |
+
+<details>
+<summary><b>Immich</b>: server, job queues (thumbnails, transcode, faces, CLIP), Immich ML in k3s, Postgres with VectorChord, Valkey, albums and shared links, workflows</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/immich-dark.svg">
+  <img src="docs/architecture/immich-light.svg" alt="Immich internals: server, Valkey job queues, job types, Immich ML in k3s, Postgres with VectorChord, media library">
+</picture>
+
+</details>
+
+<details>
+<summary><b>Director service</b>: routers, reel pipeline, analysis poller, team score, Facet scores, agentic director, grammar and QA, renderer with segment cache and speculative finals, editor, join, Postiz bridge, SQLite</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/director-dark.svg">
+  <img src="docs/architecture/director-light.svg" alt="Director service modules and what each one calls">
+</picture>
+
+</details>
+
+<details>
+<summary><b>Android app</b>: Immich fork modules and the `lib/memories` modules, with the server endpoints each one calls</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/app-dark.svg">
+  <img src="docs/architecture/app-light.svg" alt="Android app modules and the endpoints each one calls">
+</picture>
+
+</details>
+
+<details>
+<summary><b>Sarvam AI</b>: each model and the job it does in Memories</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/sarvam-dark.svg">
+  <img src="docs/architecture/sarvam-light.svg" alt="Sarvam AI models and the director modules that call them">
+</picture>
+
+</details>
+
+<details>
+<summary><b>Flagsmith</b>: each flag, segment and the experiment, and where the code reads it</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/flagsmith-dark.svg">
+  <img src="docs/architecture/flagsmith-light.svg" alt="Flagsmith flags, segments and experiment, and where each is read">
+</picture>
+
+</details>
+
+<details>
+<summary><b>NudgeBee ops loop</b>: upload surge, OOM, investigation, human approval, Flagsmith kill switch</summary>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/architecture/ops-loop-dark.svg">
+  <img src="docs/architecture/ops-loop-light.svg" alt="Sequence: upload burst, Immich ML OOM, NudgeBee investigation, approval, Flagsmith ml_lite_mode">
+</picture>
+
+</details>
+
+All diagrams were made with [Archify](https://github.com/tt-a1i/archify) from the JSON sources in [`docs/architecture/`](docs/architecture/) (for example [`memories-architecture.json`](docs/architecture/memories-architecture.json)). Each has light and dark SVGs and a 2x PNG. The interactive pages are the `.html` files in the same folder, served with GitHub Pages at https://saurabh4269.github.io/memories/architecture/.
 
 More detail, including the step-by-step flow of a reel request and the speed work: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 

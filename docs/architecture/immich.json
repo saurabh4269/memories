@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": { "title": "Zoom in: Immich", "locale": "en", "output": "docs/architecture/immich.html", "quality_profile": "showcase", "feedback_links": false, "parentHref": "index.html" },
+  "layout": { "mode": "auto" },
+  "components": [
+    { "id": "clients", "type": "external", "label": "Memories app + director", "sublabel": "Immich REST with API keys" },
+    { "id": "caddy", "type": "security", "label": "Caddy :443", "sublabel": "50 GB body, no timeouts" },
+    { "id": "server", "type": "backend", "label": "immich-server v3.4.2", "sublabel": ":2283 REST API, auth, web" },
+    { "id": "albums", "type": "backend", "label": "Albums, users, shared links", "sublabel": "join adds members as editors" },
+    { "id": "workflow", "type": "backend", "label": "Workflows / plugins", "sublabel": "workflow queue, not used yet" },
+    { "id": "valkey", "type": "messagebus", "label": "Valkey 9", "sublabel": "BullMQ job queues" },
+    { "id": "workers", "type": "backend", "label": "Job workers", "sublabel": "same container as the API" },
+    { "id": "thumbs", "type": "backend", "label": "Thumbnails + metadata", "sublabel": "previews, EXIF" },
+    { "id": "transcode", "type": "backend", "label": "Video transcode", "sublabel": "ffmpeg, concurrency 4" },
+    { "id": "faces", "type": "backend", "label": "Faces jobs", "sublabel": "detect + recognise (cluster)" },
+    { "id": "clip", "type": "backend", "label": "Smart search job", "sublabel": "CLIP embeddings (OCR off)" },
+    { "id": "ml", "type": "backend", "label": "immich-machine-learning", "sublabel": "k3s ns immich, NodePort 30003", "tag": "watched by NudgeBee" },
+    { "id": "models", "type": "database", "label": "Model cache", "sublabel": "ViT-B-32 CLIP, buffalo_l" },
+    { "id": "pg", "type": "database", "label": "Postgres 14", "sublabel": "VectorChord 0.4.3, pgvectors" },
+    { "id": "lib", "type": "database", "label": "Library on Premium SSD", "sublabel": "originals, thumbs, video" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "docker compose /opt/immich", "wraps": ["server", "albums", "workflow", "valkey", "workers", "thumbs", "transcode", "faces", "clip", "pg", "lib"] },
+    { "kind": "region", "label": "k3s, namespace immich (2Gi limit, model TTL 300 s)", "wraps": ["ml", "models"] }
+  ],
+  "connections": [
+    { "from": "clients", "to": "caddy", "label": "HTTPS", "variant": "emphasis" },
+    { "from": "caddy", "to": "server", "label": "/api -> :2283", "variant": "emphasis" },
+    { "from": "server", "to": "albums", "label": "albums, users" },
+    { "from": "server", "to": "pg", "label": "SQL + vector search" },
+    { "from": "server", "to": "lib", "label": "upload, originals (Range)" },
+    { "from": "server", "to": "valkey", "label": "enqueue", "variant": "dashed" },
+    { "from": "valkey", "to": "workers", "label": "jobs", "variant": "dashed" },
+    { "from": "workers", "to": "thumbs", "variant": "dashed" },
+    { "from": "workers", "to": "transcode", "variant": "dashed" },
+    { "from": "workers", "to": "faces", "variant": "dashed" },
+    { "from": "workers", "to": "clip", "variant": "dashed" },
+    { "from": "workers", "to": "workflow", "variant": "dashed" },
+    { "from": "faces", "to": "ml", "label": "HTTP :30003", "variant": "dashed" },
+    { "from": "clip", "to": "ml", "label": "HTTP :30003", "variant": "dashed" },
+    { "from": "ml", "to": "models", "label": "load" }
+  ]
+}

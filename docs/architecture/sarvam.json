@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": { "title": "Zoom in: Sarvam AI, each model and its job", "locale": "en", "output": "docs/architecture/sarvam.html", "quality_profile": "showcase", "feedback_links": false, "parentHref": "index.html" },
+  "layout": { "mode": "auto" },
+  "components": [
+    { "id": "poller", "type": "backend", "label": "analysis.py", "sublabel": "new photos, video contact sheets" },
+    { "id": "agentic", "type": "backend", "label": "agentic.py + director.py", "sublabel": "plan two cuts" },
+    { "id": "coach", "type": "backend", "label": "coach.py", "sublabel": "missing-shot cards" },
+    { "id": "dictate_py", "type": "backend", "label": "dictate.py", "sublabel": "voice prompt to intent" },
+    { "id": "invite_py", "type": "backend", "label": "invite.py", "sublabel": "invite card to shot list" },
+    { "id": "voice_py", "type": "backend", "label": "voiceover.py", "sublabel": "voiceover, confirmation, translate" },
+    { "id": "client", "type": "security", "label": "sarvam.py client", "sublabel": "rate limit per model, retry 429" },
+    { "id": "gemma", "type": "cloud", "label": "gemma4 (hosted open model)", "sublabel": "6 images/call, strict JSON schema", "tag": "SPONSOR" },
+    { "id": "m105b", "type": "cloud", "label": "sarvam-105b", "sublabel": "tool calls, reasoning_effort low", "tag": "SPONSOR" },
+    { "id": "dictate", "type": "cloud", "label": "Dictate /v2/dictate", "sublabel": "text + JSON intent, vocabulary", "tag": "SPONSOR" },
+    { "id": "saaras", "type": "cloud", "label": "saaras:v4", "sublabel": "STT fallback with keyterms", "tag": "SPONSOR" },
+    { "id": "docai", "type": "cloud", "label": "Document AI", "sublabel": "extract job, Hindi invites", "tag": "SPONSOR" },
+    { "id": "mayura", "type": "cloud", "label": "mayura:v1", "sublabel": "translation, cached", "tag": "SPONSOR" },
+    { "id": "bulbul", "type": "cloud", "label": "bulbul:v4-flash", "sublabel": "streaming TTS, 11 languages", "tag": "SPONSOR" }
+  ],
+  "boundaries": [
+    { "kind": "region", "label": "Memories director", "wraps": ["poller", "agentic", "coach", "dictate_py", "invite_py", "voice_py", "client"] },
+    { "kind": "region", "label": "api.sarvam.ai (HTTPS)", "wraps": ["gemma", "m105b", "dictate", "saaras", "docai", "mayura", "bulbul"] }
+  ],
+  "connections": [
+    { "from": "poller", "to": "client", "label": "score shots", "variant": "dashed" },
+    { "from": "agentic", "to": "client", "label": "plan", "variant": "emphasis" },
+    { "from": "coach", "to": "client", "label": "shot list, translate" },
+    { "from": "dictate_py", "to": "client", "label": "audio" },
+    { "from": "invite_py", "to": "client", "label": "image" },
+    { "from": "voice_py", "to": "client", "label": "text" },
+    { "from": "client", "to": "gemma", "label": "shot analysis", "variant": "dashed" },
+    { "from": "client", "to": "m105b", "label": "director, shot lists, intent", "variant": "emphasis" },
+    { "from": "client", "to": "dictate", "label": "voice prompt" },
+    { "from": "client", "to": "saaras", "label": "fallback" },
+    { "from": "client", "to": "docai", "label": "invite card" },
+    { "from": "client", "to": "mayura", "label": "coach cards" },
+    { "from": "client", "to": "bulbul", "label": "voiceover" }
+  ]
+}

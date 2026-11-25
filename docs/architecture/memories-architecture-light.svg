@@ -1251,9 +1251,9 @@ opened. The complete license is preserved in
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="2" data-composition-frame-label="docker compose /opt/immich" x="2" y="640" width="400" height="236" rx="8" class="c-security-group" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="3" data-composition-frame-label="k3s single node" x="442" y="640" width="220" height="236" rx="8" class="c-security-group" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="3" data-composition-frame-label="k3s ns immich + nudgebee-agent" x="442" y="640" width="220" height="236" rx="8" class="c-security-group" stroke-width="1"/>
 
-        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="4" data-composition-frame-label="Memories director container" x="222" y="240" width="440" height="366" rx="8" class="c-security-group" stroke-width="1"/>
+        <rect data-graph-role="structural-frame" data-composition-frame-kind="security-group" data-composition-frame-id="4" data-composition-frame-label="k3s ns memories: director (hostNetwork)" x="222" y="240" width="440" height="366" rx="8" class="c-security-group" stroke-width="1"/>
 
         <rect data-graph-role="structural-frame" data-composition-frame-kind="region" data-composition-frame-id="5" data-composition-frame-label="Third-party SaaS (HTTPS 443)" x="802" y="120" width="220" height="756" rx="12" class="c-region" stroke-width="1"/>
 
@@ -1266,7 +1266,7 @@ opened. The complete license is preserved in
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
           <path data-graph-role="automatic-crossover-underlay" d="M 182 305 L 472 305" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8010" data-edge-key="1" data-composition-points="182,305;472,305" data-composition-crossover="halo" data-composition-independent="true" d="M 182 305 L 472 305" class="a-emphasis" data-animate="edge" style="--step: 1;" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8018" data-edge-key="1" data-composition-points="182,305;472,305" data-composition-crossover="halo" data-composition-independent="true" d="M 182 305 L 472 305" class="a-emphasis" data-animate="edge" style="--step: 1;" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
           <path data-graph-role="automatic-crossover-underlay" d="M 107 326 L 107 670" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -1351,7 +1351,8 @@ opened. The complete license is preserved in
         </g>
 
         <!-- Components -->
-        <g id="node-app" data-node-id="app" data-node-label="Memories Android app" tabindex="0" role="button" aria-label="Focus Memories Android app, Flutter fork of Immich app, Phone (Android)" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Flutter fork of Immich app" data-node-context="Phone (Android)">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="app.html" aria-label="Memories Android app">
+                <g id="node-app" data-node-id="app" data-node-label="Memories Android app" tabindex="0" role="button" aria-label="Focus Memories Android app, Flutter fork of Immich app, Phone (Android)" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Flutter fork of Immich app" data-node-context="Phone (Android)" data-node-drilldowns="[{&quot;href&quot;:&quot;app.html&quot;,&quot;label&quot;:&quot;Memories Android app&quot;}]">
           <title>Memories Android app · Flutter fork of Immich app · Phone (Android)</title>
           <rect x="32" y="30" width="200" height="56" rx="8" class="c-mask"/>
           <rect x="32" y="30" width="200" height="56" rx="8" class="c-frontend" data-animate="node" style="--step: 0; --flow-node-name: archify-relay-node-0;" stroke-width="1.5"/>
@@ -1362,8 +1363,13 @@ opened. The complete license is preserved in
             <circle cx="6.3" cy="4.8" r=".7" class="sigil-fill"/>
           </g>
           <text data-node-label="" x="132" y="56" class="t-primary" font-size="12.6" font-weight="600" text-anchor="middle">Memories Android app</text>
-        <text x="132" y="72" class="t-muted" font-size="10.5" text-anchor="middle">Flutter fork of Immich app</text>
+        <text x="132" y="72" class="t-muted" font-size="9" text-anchor="middle">Flutter fork of Immich app</text>
+          <g class="archify-drilldown-mark" transform="translate(221 75)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
         <g id="node-caddy" data-node-id="caddy" data-node-label="Caddy :443" tabindex="0" role="button" aria-label="Focus Caddy :443, Let's Encrypt TLS, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="security" data-node-sublabel="Let's Encrypt TLS" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
           <title>Caddy :443 · Let's Encrypt TLS · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
@@ -1377,18 +1383,25 @@ opened. The complete license is preserved in
         <text x="107" y="312" class="t-muted" font-size="10.5" text-anchor="middle">Let's Encrypt TLS</text>
         </g>
 
-        <g id="node-immich" data-node-id="immich" data-node-label="Immich server v3.4.2" tabindex="0" role="button" aria-label="Focus Immich server v3.4.2, :2283 REST, albums, thumbnails, people, smart search, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":2283 REST, albums, thumbnails, people, smart search" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
-          <title>Immich server v3.4.2 · :2283 REST, albums, thumbnails, people, smart search · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="immich.html" aria-label="Immich server v3.4.2">
+                <g id="node-immich" data-node-id="immich" data-node-label="Immich server v3.4.2" tabindex="0" role="button" aria-label="Focus Immich server v3.4.2, :2283 REST, albums, people, smart search, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":2283 REST, albums, people, smart search" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" data-node-drilldowns="[{&quot;href&quot;:&quot;immich.html&quot;,&quot;label&quot;:&quot;Immich server v3.4.2&quot;}]">
+          <title>Immich server v3.4.2 · :2283 REST, albums, people, smart search · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="32" y="670" width="340" height="56" rx="8" class="c-mask"/>
           <rect x="32" y="670" width="340" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 3; --flow-node-name: archify-relay-node-5;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(38 676) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="202" y="696" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Immich server v3.4.2</text>
-        <text x="202" y="712" class="t-muted" font-size="10.5" text-anchor="middle">:2283 REST, albums, thumbnails, people, smart search</text>
+        <text x="202" y="712" class="t-muted" font-size="9" text-anchor="middle">:2283 REST, albums, people, smart search</text>
+          <g class="archify-drilldown-mark" transform="translate(361 715)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-pg" data-node-id="pg" data-node-label="Postgres 14" tabindex="0" role="button" aria-label="Focus Postgres 14, VectorChord, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="VectorChord" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="immich.html" aria-label="Postgres 14">
+                <g id="node-pg" data-node-id="pg" data-node-label="Postgres 14" tabindex="0" role="button" aria-label="Focus Postgres 14, VectorChord, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="VectorChord" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" data-node-drilldowns="[{&quot;href&quot;:&quot;immich.html&quot;,&quot;label&quot;:&quot;Postgres 14&quot;}]">
           <title>Postgres 14 · VectorChord · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="32" y="800" width="105" height="56" rx="8" class="c-mask"/>
           <rect x="32" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 4; --flow-node-name: archify-relay-node-15;" stroke-width="1.5"/>
@@ -1397,10 +1410,16 @@ opened. The complete license is preserved in
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
           <text data-node-label="" x="84.5" y="826" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Postgres 14</text>
-        <text x="84.5" y="842" class="t-muted" font-size="10.5" text-anchor="middle">VectorChord</text>
+        <text x="84.5" y="842" class="t-muted" font-size="9" text-anchor="middle">VectorChord</text>
+          <g class="archify-drilldown-mark" transform="translate(126 845)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-valkey" data-node-id="valkey" data-node-label="Valkey" tabindex="0" role="button" aria-label="Focus Valkey, job queues, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="job queues" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="immich.html" aria-label="Valkey">
+                <g id="node-valkey" data-node-id="valkey" data-node-label="Valkey" tabindex="0" role="button" aria-label="Focus Valkey, job queues, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="job queues" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" data-node-drilldowns="[{&quot;href&quot;:&quot;immich.html&quot;,&quot;label&quot;:&quot;Valkey&quot;}]">
           <title>Valkey · job queues · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="149" y="800" width="105" height="56" rx="8" class="c-mask"/>
           <rect x="149" y="800" width="105" height="56" rx="8" class="c-messagebus" data-animate="node" style="--step: 5; --flow-node-name: archify-relay-node-16;" stroke-width="1.5"/>
@@ -1411,10 +1430,16 @@ opened. The complete license is preserved in
             <circle cx="7" cy="11.5" r="1" class="sigil-fill"/>
           </g>
           <text data-node-label="" x="201.5" y="826" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Valkey</text>
-        <text x="201.5" y="842" class="t-muted" font-size="10.5" text-anchor="middle">job queues</text>
+        <text x="201.5" y="842" class="t-muted" font-size="9" text-anchor="middle">job queues</text>
+          <g class="archify-drilldown-mark" transform="translate(243 845)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-library" data-node-id="library" data-node-label="Media files" tabindex="0" role="button" aria-label="Focus Media files, Premium SSD, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="Premium SSD" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="immich.html" aria-label="Media files">
+                <g id="node-library" data-node-id="library" data-node-label="Media files" tabindex="0" role="button" aria-label="Focus Media files, Premium SSD, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="Premium SSD" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" data-node-drilldowns="[{&quot;href&quot;:&quot;immich.html&quot;,&quot;label&quot;:&quot;Media files&quot;}]">
           <title>Media files · Premium SSD · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="267" y="800" width="105" height="56" rx="8" class="c-mask"/>
           <rect x="267" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 6; --flow-node-name: archify-relay-node-17;" stroke-width="1.5"/>
@@ -1423,22 +1448,34 @@ opened. The complete license is preserved in
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
           <text data-node-label="" x="319.5" y="826" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Media files</text>
-        <text x="319.5" y="842" class="t-muted" font-size="10.5" text-anchor="middle">Premium SSD</text>
+        <text x="319.5" y="842" class="t-muted" font-size="9" text-anchor="middle">Premium SSD</text>
+          <g class="archify-drilldown-mark" transform="translate(361 845)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-ml" data-node-id="ml" data-node-label="Immich ML (k3s)" tabindex="0" role="button" aria-label="Focus Immich ML (k3s), NodePort 30003, CLIP, faces, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node" aria-pressed="false" data-node-kind="backend" data-node-sublabel="NodePort 30003, CLIP, faces" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node">
-          <title>Immich ML (k3s) · NodePort 30003, CLIP, faces · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="immich.html" aria-label="Immich ML (k3s)">
+                <g id="node-ml" data-node-id="ml" data-node-label="Immich ML (k3s)" tabindex="0" role="button" aria-label="Focus Immich ML (k3s), NodePort 30003, CLIP, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent" aria-pressed="false" data-node-kind="backend" data-node-sublabel="NodePort 30003, CLIP" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent" data-node-drilldowns="[{&quot;href&quot;:&quot;immich.html&quot;,&quot;label&quot;:&quot;Immich ML (k3s)&quot;}]">
+          <title>Immich ML (k3s) · NodePort 30003, CLIP · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent</title>
           <rect x="472" y="670" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="670" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 7; --flow-node-name: archify-relay-node-8;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 676) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="552" y="696" class="t-primary" font-size="12.4" font-weight="600" text-anchor="middle">Immich ML (k3s)</text>
-        <text x="552" y="712" class="t-muted" font-size="9.3" text-anchor="middle">NodePort 30003, CLIP, faces</text>
+        <text x="552" y="712" class="t-muted" font-size="9" text-anchor="middle">NodePort 30003, CLIP</text>
+          <g class="archify-drilldown-mark" transform="translate(621 715)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-nbagent" data-node-id="nbagent" data-node-label="NudgeBee agent" tabindex="0" role="button" aria-label="Focus NudgeBee agent, ns nudgebee-agent, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node" aria-pressed="false" data-node-kind="security" data-node-sublabel="ns nudgebee-agent" data-node-tag="SPONSOR" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node">
-          <title>NudgeBee agent · ns nudgebee-agent · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node · SPONSOR</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="ops-loop.html" aria-label="NudgeBee agent">
+                <g id="node-nbagent" data-node-id="nbagent" data-node-label="NudgeBee agent" tabindex="0" role="button" aria-label="Focus NudgeBee agent, ns nudgebee-agent, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent" aria-pressed="false" data-node-kind="security" data-node-sublabel="ns nudgebee-agent" data-node-tag="SPONSOR" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent" data-node-drilldowns="[{&quot;href&quot;:&quot;ops-loop.html&quot;,&quot;label&quot;:&quot;NudgeBee agent&quot;}]">
+          <title>NudgeBee agent · ns nudgebee-agent · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns immich + nudgebee-agent · SPONSOR</title>
           <rect x="472" y="800" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="800" width="160" height="56" rx="8" class="c-security" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-2;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(478 806) scale(0.6875)">
@@ -1448,54 +1485,84 @@ opened. The complete license is preserved in
           <text data-node-label="" x="552" y="821.9875" class="t-primary" font-size="13.3" font-weight="600" text-anchor="middle">NudgeBee agent</text>
         <text x="552" y="835.3125" class="t-muted" font-size="9" text-anchor="middle">ns nudgebee-agent</text>
         <text x="552" y="845.5625" class="t-security" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(621 845)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-api" data-node-id="api" data-node-label="Director API" tabindex="0" role="button" aria-label="Focus Director API, :8010, reels, EDL, join, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":8010, reels, EDL, join" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
-          <title>Director API · :8010, reels, EDL, join · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="Director API">
+                <g id="node-api" data-node-id="api" data-node-label="Director API" tabindex="0" role="button" aria-label="Focus Director API, :8018, reels, EDL, join, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":8018, reels, EDL, join" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;Director API&quot;}]">
+          <title>Director API · :8018, reels, EDL, join · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)</title>
           <rect x="472" y="270" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="270" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 2; --flow-node-name: archify-relay-node-10;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 276) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="552" y="296" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Director API</text>
-        <text x="552" y="312" class="t-muted" font-size="10.5" text-anchor="middle">:8010, reels, EDL, join</text>
+        <text x="552" y="312" class="t-muted" font-size="9" text-anchor="middle">:8018, reels, EDL, join</text>
+          <g class="archify-drilldown-mark" transform="translate(621 315)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-poller" data-node-id="poller" data-node-label="Analysis poller" tabindex="0" role="button" aria-label="Focus Analysis poller, every 10 s, new assets, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel="every 10 s, new assets" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
-          <title>Analysis poller · every 10 s, new assets · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="Analysis poller">
+                <g id="node-poller" data-node-id="poller" data-node-label="Analysis poller" tabindex="0" role="button" aria-label="Focus Analysis poller, 10 s, new assets, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="10 s, new assets" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;Analysis poller&quot;}]">
+          <title>Analysis poller · 10 s, new assets · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)</title>
           <rect x="472" y="530" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="530" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 7; --flow-node-name: archify-relay-node-1;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 536) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="552" y="556" class="t-primary" font-size="12.4" font-weight="600" text-anchor="middle">Analysis poller</text>
-        <text x="552" y="572" class="t-muted" font-size="10.5" text-anchor="middle">every 10 s, new assets</text>
+        <text x="552" y="572" class="t-muted" font-size="9" text-anchor="middle">10 s, new assets</text>
+          <g class="archify-drilldown-mark" transform="translate(621 575)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-director" data-node-id="director" data-node-label="Agentic director" tabindex="0" role="button" aria-label="Focus Agentic director, tool loop, grammar, QA, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel="tool loop, grammar, QA" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
-          <title>Agentic director · tool loop, grammar, QA · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="Agentic director">
+                <g id="node-director" data-node-id="director" data-node-label="Agentic director" tabindex="0" role="button" aria-label="Focus Agentic director, 105b tools, grammar, QA, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="105b tools, grammar, QA" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;Agentic director&quot;}]">
+          <title>Agentic director · 105b tools, grammar, QA · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)</title>
           <rect x="472" y="400" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="400" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-13;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 406) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="552" y="426" class="t-primary" font-size="11.6" font-weight="600" text-anchor="middle">Agentic director</text>
-        <text x="552" y="442" class="t-muted" font-size="10.5" text-anchor="middle">tool loop, grammar, QA</text>
+        <text x="552" y="442" class="t-muted" font-size="9" text-anchor="middle">105b tools, grammar, QA</text>
+          <g class="archify-drilldown-mark" transform="translate(621 445)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-render" data-node-id="render" data-node-label="ffmpeg renderer" tabindex="0" role="button" aria-label="Focus ffmpeg renderer, x264, parallel segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel="x264, parallel segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
-          <title>ffmpeg renderer · x264, parallel segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="ffmpeg renderer">
+                <g id="node-render" data-node-id="render" data-node-label="ffmpeg renderer" tabindex="0" role="button" aria-label="Focus ffmpeg renderer, x264, parallel segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="x264, parallel segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;ffmpeg renderer&quot;}]">
+          <title>ffmpeg renderer · x264, parallel segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)</title>
           <rect x="252" y="400" width="150" height="56" rx="8" class="c-mask"/>
           <rect x="252" y="400" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-19;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(258 406) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="327" y="426" class="t-primary" font-size="11.3" font-weight="600" text-anchor="middle">ffmpeg renderer</text>
-        <text x="327" y="442" class="t-muted" font-size="10.2" text-anchor="middle">x264, parallel segments</text>
+        <text x="327" y="442" class="t-muted" font-size="9" text-anchor="middle">x264, parallel segments</text>
+          <g class="archify-drilldown-mark" transform="translate(391 445)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-sqlite" data-node-id="sqlite" data-node-label="SQLite + DATA_DIR" tabindex="0" role="button" aria-label="Focus SQLite + DATA_DIR, analysis, segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="database" data-node-sublabel="analysis, segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
-          <title>SQLite + DATA_DIR · analysis, segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="SQLite + DATA_DIR">
+                <g id="node-sqlite" data-node-id="sqlite" data-node-label="SQLite + DATA_DIR" tabindex="0" role="button" aria-label="Focus SQLite + DATA_DIR, analysis, segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" aria-pressed="false" data-node-kind="database" data-node-sublabel="analysis, segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;SQLite + DATA_DIR&quot;}]">
+          <title>SQLite + DATA_DIR · analysis, segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s ns memories: director (hostNetwork)</title>
           <rect x="252" y="530" width="150" height="56" rx="8" class="c-mask"/>
           <rect x="252" y="530" width="150" height="56" rx="8" class="c-database" data-animate="node" style="--step: 10; --flow-node-name: archify-relay-node-7;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(258 536) scale(0.6875)">
@@ -1503,21 +1570,33 @@ opened. The complete license is preserved in
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
           </g>
           <text data-node-label="" x="327" y="556" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">SQLite + DATA_DIR</text>
-        <text x="327" y="572" class="t-muted" font-size="10.5" text-anchor="middle">analysis, segments</text>
+        <text x="327" y="572" class="t-muted" font-size="9" text-anchor="middle">analysis, segments</text>
+          <g class="archify-drilldown-mark" transform="translate(391 575)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-facet" data-node-id="facet" data-node-label="Facet container" tabindex="0" role="button" aria-label="Focus Facet container, MIT photo scoring, CPU, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="MIT photo scoring, CPU" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
-          <title>Facet container · MIT photo scoring, CPU · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="Facet container">
+                <g id="node-facet" data-node-id="facet" data-node-label="Facet container" tabindex="0" role="button" aria-label="Focus Facet container, MIT photo scores, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="MIT photo scores" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;Facet container&quot;}]">
+          <title>Facet container · MIT photo scores · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
           <rect x="252" y="150" width="150" height="56" rx="8" class="c-mask"/>
           <rect x="252" y="150" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-3;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(258 156) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="327" y="176" class="t-primary" font-size="11.3" font-weight="600" text-anchor="middle">Facet container</text>
-        <text x="327" y="192" class="t-muted" font-size="10.5" text-anchor="middle">MIT photo scoring, CPU</text>
+        <text x="327" y="192" class="t-muted" font-size="9" text-anchor="middle">MIT photo scores</text>
+          <g class="archify-drilldown-mark" transform="translate(391 195)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-postiz" data-node-id="postiz" data-node-label="Postiz :4007" tabindex="0" role="button" aria-label="Focus Postiz :4007, Postgres, Redis, Temporal, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Postgres, Redis, Temporal" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="director.html" aria-label="Postiz :4007">
+                <g id="node-postiz" data-node-id="postiz" data-node-label="Postiz :4007" tabindex="0" role="button" aria-label="Focus Postiz :4007, Postgres, Redis, Temporal, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Postgres, Redis, Temporal" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" data-node-drilldowns="[{&quot;href&quot;:&quot;director.html&quot;,&quot;label&quot;:&quot;Postiz :4007&quot;}]">
           <title>Postiz :4007 · Postgres, Redis, Temporal · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
           <rect x="472" y="150" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="472" y="150" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-14;" stroke-width="1.5"/>
@@ -1525,22 +1604,34 @@ opened. The complete license is preserved in
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
           <text data-node-label="" x="552" y="176" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Postiz :4007</text>
-        <text x="552" y="192" class="t-muted" font-size="10.1" text-anchor="middle">Postgres, Redis, Temporal</text>
+        <text x="552" y="192" class="t-muted" font-size="9" text-anchor="middle">Postgres, Redis, Temporal</text>
+          <g class="archify-drilldown-mark" transform="translate(621 195)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-flagsmith" data-node-id="flagsmith" data-node-label="Flagsmith" tabindex="0" role="button" aria-label="Focus Flagsmith, flags, experiment, health, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="flags, experiment, health" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)">
-          <title>Flagsmith · flags, experiment, health · Third-party SaaS (HTTPS 443) · SPONSOR</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="flagsmith.html" aria-label="Flagsmith">
+                <g id="node-flagsmith" data-node-id="flagsmith" data-node-label="Flagsmith" tabindex="0" role="button" aria-label="Focus Flagsmith, flags, experiment, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="flags, experiment" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)" data-node-drilldowns="[{&quot;href&quot;:&quot;flagsmith.html&quot;,&quot;label&quot;:&quot;Flagsmith&quot;}]">
+          <title>Flagsmith · flags, experiment · Third-party SaaS (HTTPS 443) · SPONSOR</title>
           <rect x="832" y="262" width="160" height="50" rx="8" class="c-mask"/>
           <rect x="832" y="262" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-12;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 268) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
           <text data-node-label="" x="912" y="281.25" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">Flagsmith</text>
-        <text x="912" y="294.75" class="t-muted" font-size="9" text-anchor="middle">flags, experiment, health</text>
+        <text x="912" y="294.75" class="t-muted" font-size="9" text-anchor="middle">flags, experiment</text>
         <text x="912" y="305" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(981 301)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-nudgebee" data-node-id="nudgebee" data-node-label="NudgeBee cloud" tabindex="0" role="button" aria-label="Focus NudgeBee cloud, RCA, workflow, approval, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="RCA, workflow, approval" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="ops-loop.html" aria-label="NudgeBee cloud">
+                <g id="node-nudgebee" data-node-id="nudgebee" data-node-label="NudgeBee cloud" tabindex="0" role="button" aria-label="Focus NudgeBee cloud, RCA, workflow, approval, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="RCA, workflow, approval" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)" data-node-drilldowns="[{&quot;href&quot;:&quot;ops-loop.html&quot;,&quot;label&quot;:&quot;NudgeBee cloud&quot;}]">
           <title>NudgeBee cloud · RCA, workflow, approval · Third-party SaaS (HTTPS 443) · SPONSOR</title>
           <rect x="832" y="800" width="160" height="56" rx="8" class="c-mask"/>
           <rect x="832" y="800" width="160" height="56" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-9;" stroke-width="1.5"/>
@@ -1548,9 +1639,14 @@ opened. The complete license is preserved in
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
           <text data-node-label="" x="912" y="821.9875" class="t-primary" font-size="13.3" font-weight="600" text-anchor="middle">NudgeBee cloud</text>
-        <text x="912" y="835.3125" class="t-muted" font-size="9" text-anchor="middle">RCA, workflow, approval</text>
+        <text x="910.9" y="835.3125" class="t-muted" font-size="9" text-anchor="middle">RCA, workflow, approval</text>
         <text x="912" y="845.5625" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(981 845)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
         <g id="node-telegram" data-node-id="telegram" data-node-label="Telegram channel" tabindex="0" role="button" aria-label="Focus Telegram channel, posting live, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="external" data-node-sublabel="posting live" data-node-context="Third-party SaaS (HTTPS 443)">
           <title>Telegram channel · posting live · Third-party SaaS (HTTPS 443)</title>
@@ -1564,19 +1660,26 @@ opened. The complete license is preserved in
         <text x="912" y="192" class="t-muted" font-size="10.5" text-anchor="middle">posting live</text>
         </g>
 
-        <g id="node-s_speech" data-node-id="s_speech" data-node-label="Dictate + saaras:v4" tabindex="0" role="button" aria-label="Focus Dictate + saaras:v4, plus Doc AI, mayura, bulbul, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="plus Doc AI, mayura, bulbul" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
-          <title>Dictate + saaras:v4 · plus Doc AI, mayura, bulbul · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="sarvam.html" aria-label="Dictate + saaras:v4">
+                <g id="node-s_speech" data-node-id="s_speech" data-node-label="Dictate + saaras:v4" tabindex="0" role="button" aria-label="Focus Dictate + saaras:v4, + Doc AI, mayura, bulbul, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="+ Doc AI, mayura, bulbul" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" data-node-drilldowns="[{&quot;href&quot;:&quot;sarvam.html&quot;,&quot;label&quot;:&quot;Dictate + saaras:v4&quot;}]">
+          <title>Dictate + saaras:v4 · + Doc AI, mayura, bulbul · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="346" width="160" height="50" rx="8" class="c-mask"/>
           <rect x="832" y="346" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 11; --flow-node-name: archify-relay-node-11;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 352) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
           <text data-node-label="" x="914.7" y="364.125" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Dictate + saaras:v4</text>
-        <text x="912" y="376.875" class="t-muted" font-size="9" text-anchor="middle">plus Doc AI, mayura, bulbul</text>
+        <text x="908.2" y="376.875" class="t-muted" font-size="9" text-anchor="middle">+ Doc AI, mayura, bulbul</text>
         <text x="912" y="387.125" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(981 385)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-s_105b" data-node-id="s_105b" data-node-label="sarvam-105b" tabindex="0" role="button" aria-label="Focus sarvam-105b, director, tool calls, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="director, tool calls" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="sarvam.html" aria-label="sarvam-105b">
+                <g id="node-s_105b" data-node-id="s_105b" data-node-label="sarvam-105b" tabindex="0" role="button" aria-label="Focus sarvam-105b, director, tool calls, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="director, tool calls" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" data-node-drilldowns="[{&quot;href&quot;:&quot;sarvam.html&quot;,&quot;label&quot;:&quot;sarvam-105b&quot;}]">
           <title>sarvam-105b · director, tool calls · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="404" width="160" height="50" rx="8" class="c-mask"/>
           <rect x="832" y="404" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-18;" stroke-width="1.5"/>
@@ -1586,9 +1689,15 @@ opened. The complete license is preserved in
           <text data-node-label="" x="912" y="423.25" class="t-primary" font-size="14" font-weight="600" text-anchor="middle">sarvam-105b</text>
         <text x="912" y="436.75" class="t-muted" font-size="9" text-anchor="middle">director, tool calls</text>
         <text x="912" y="447" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(981 443)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
-        <g id="node-s_gemma" data-node-id="s_gemma" data-node-label="gemma4 (hosted)" tabindex="0" role="button" aria-label="Focus gemma4 (hosted), shot analysis, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="shot analysis" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
+<a class="archify-drilldown-link" data-archify-drilldown="1" href="sarvam.html" aria-label="gemma4 (hosted)">
+                <g id="node-s_gemma" data-node-id="s_gemma" data-node-label="gemma4 (hosted)" tabindex="0" role="button" aria-label="Focus gemma4 (hosted), shot analysis, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="shot analysis" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" data-node-drilldowns="[{&quot;href&quot;:&quot;sarvam.html&quot;,&quot;label&quot;:&quot;gemma4 (hosted)&quot;}]">
           <title>gemma4 (hosted) · shot analysis · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="534" width="160" height="50" rx="8" class="c-mask"/>
           <rect x="832" y="534" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 9; --flow-node-name: archify-relay-node-6;" stroke-width="1.5"/>
@@ -1598,16 +1707,21 @@ opened. The complete license is preserved in
           <text data-node-label="" x="912" y="552.65" class="t-primary" font-size="12.4" font-weight="600" text-anchor="middle">gemma4 (hosted)</text>
         <text x="912" y="565.75" class="t-muted" font-size="9" text-anchor="middle">shot analysis</text>
         <text x="912" y="576" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
+          <g class="archify-drilldown-mark" transform="translate(981 573)" aria-hidden="true">
+          <circle r="6" class="archify-drilldown-mark-disc"/>
+          <path d="M-1.8 -1.6 L2.4 0 L-1.8 1.6" fill="none" class="archify-drilldown-mark-arrow"/>
         </g>
+        </g>
+        </a>
 
         <!-- Connection labels -->
         <g data-edge-from="app" data-edge-to="caddy" data-edge-label="1 upload, 4 reel request (HTTPS)" data-edge-key="0">
           <rect x="138" y="217" width="163.6" height="14" rx="3" class="c-mask"/>
           <text x="219.8" y="227" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="159.6" lengthAdjust="spacingAndGlyphs" text-anchor="middle">1 upload, 4 reel request (HTTPS)</text>
         </g>
-        <g data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8010" data-edge-key="1">
+        <g data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8018" data-edge-key="1">
           <rect x="274" y="315" width="106" height="14" rx="3" class="c-mask"/>
-          <text x="327" y="325" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="102" lengthAdjust="spacingAndGlyphs" text-anchor="middle">/director/* -&gt; :8010</text>
+          <text x="327" y="325" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="102" lengthAdjust="spacingAndGlyphs" text-anchor="middle">/director/* -&gt; :8018</text>
         </g>
         <g data-edge-from="caddy" data-edge-to="immich" data-edge-label="/api -&gt; :2283" data-edge-key="2">
           <rect x="28.599999999999994" y="491" width="72.4" height="14" rx="3" class="c-mask"/>
@@ -1710,14 +1824,14 @@ opened. The complete license is preserved in
           <text data-boundary-label="" x="221" y="663" class="t-security" font-size="9" font-weight="600">docker compose /opt/immich</text>
         </g>
 
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="3" data-composition-frame-kind="security-group" data-composition-frame-label="k3s single node">
-          <rect data-graph-role="structural-frame-label-mask" x="446" y="650" width="91" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="450" y="663" class="t-security" font-size="9" font-weight="600">k3s single node</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="3" data-composition-frame-kind="security-group" data-composition-frame-label="k3s ns immich + nudgebee-agent">
+          <rect data-graph-role="structural-frame-label-mask" x="446" y="650" width="172" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="450" y="663" class="t-security" font-size="9" font-weight="600">k3s ns immich + nudgebee-agent</text>
         </g>
 
-        <g data-graph-role="structural-frame-label" data-composition-frame-id="4" data-composition-frame-kind="security-group" data-composition-frame-label="Memories director container">
-          <rect data-graph-role="structural-frame-label-mask" x="226" y="250" width="155.79999999999998" height="16" rx="3" class="c-mask"/>
-          <text data-boundary-label="" x="230" y="263" class="t-security" font-size="9" font-weight="600">Memories director container</text>
+        <g data-graph-role="structural-frame-label" data-composition-frame-id="4" data-composition-frame-kind="security-group" data-composition-frame-label="k3s ns memories: director (hostNetwork)">
+          <rect data-graph-role="structural-frame-label-mask" x="226" y="250" width="220.6" height="16" rx="3" class="c-mask"/>
+          <text data-boundary-label="" x="230" y="263" class="t-security" font-size="9" font-weight="600">k3s ns memories: director (hostNetwork)</text>
         </g>
 
         <g data-graph-role="structural-frame-label" data-composition-frame-id="5" data-composition-frame-kind="region" data-composition-frame-label="Third-party SaaS (HTTPS 443)">
