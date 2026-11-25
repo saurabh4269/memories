@@ -1,0 +1,37 @@
+[project]
+name = "memories"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Saurabh Gupta", email = "saurabhgupta0342@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.165.0",
+    "flagsmith>=6.7.0",
+    "httpx>=0.28.1",
+    "numpy>=2.5.5",
+    "opentimelineio>=0.18.1",
+    "pillow<13",
+    "pydantic-settings>=2.16.3",
+    "python-multipart>=0.0.34",
+    "qrcode>=8.2",
+    "uvicorn[standard]>=0.54.0",
+]
+
+[project.scripts]
+memories = "memories:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+]
+
+[tool.uv]
+# Build Pillow from source on macOS so it links libraqm (Devanagari shaping)
+no-binary-package = ["pillow"]

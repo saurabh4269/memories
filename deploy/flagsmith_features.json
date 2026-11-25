@@ -1,0 +1,20 @@
+{
+  "organisation_id": 41880,
+  "project_id": 55989,
+  "environments": {
+    "Development": {"id": 119871, "api_key_env_var": "FLAGSMITH_ENV_KEY", "note": "env api_key == client-side key in FLAGSMITH_ENV_KEY; used in __future__ URLs"},
+    "Production": {"id": 119872, "api_key_env_var": null, "note": "api_key not stored in .env"}
+  },
+  "management_auth_env_var": "FLAGSMITH_ORG_API_KEY",
+  "features": {
+    "festive_livetest": {"id": 303221, "created_by": "livetest (pre-existing)"},
+    "director_strategy": {"id": 303492, "type": "MULTIVARIATE", "created_by": "other agent (pre-existing)"},
+    "elder_mode": {"id": 303493, "created_by": "other agent (pre-existing)"},
+    "shot_coach": {"id": 303495, "default_enabled": false, "value": {"max_cards": 3}},
+    "ml_lite_mode": {"id": 303496, "default_enabled": false, "value": {"shot_coach": false, "analysis_batch": 3, "smart_search": "cached"}, "toggled_by": "NudgeBee workflow memories-ml-surge"},
+    "render_profile": {"id": 303497, "default_enabled": true, "value": {"res": 1080, "fps": 30, "transition": "xfade"}},
+    "peak_mode": {"id": 303498, "default_enabled": false, "value": {"res": 720, "fps": 24, "transition": "cut", "cuts": 1}}
+  },
+  "toggle": "PATCH https://api.flagsmith.com/api/__future__/environments/$FLAGSMITH_ENV_KEY/features/<id>/  body {\"environment_default\":{\"enabled\":true}}",
+  "edge_read": "GET https://edge.api.flagsmith.com/api/v1/flags/  header X-Environment-Key: $FLAGSMITH_ENV_KEY"
+}

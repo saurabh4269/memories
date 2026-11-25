@@ -1,0 +1,59 @@
+# Immich machine-learning on k3s. __IMMICH_VERSION__ and __CACHE_PATH__ are filled by deploy/k8s/apply-ml.sh
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: immich
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: immich-machine-learning
+  namespace: immich
+  labels: {app: immich-machine-learning, part-of: memories}
+spec:
+  replicas: 1
+  strategy: {type: Recreate}
+  selector:
+    matchLabels: {app: immich-machine-learning}
+  template:
+    metadata:
+      labels: {app: immich-machine-learning, part-of: memories}
+    spec:
+      containers:
+        - name: machine-learning
+          image: ghcr.io/immich-app/immich-machine-learning:__IMMICH_VERSION__
+          ports:
+            - {name: http, containerPort: 3003}
+          env:
+            - {name: MACHINE_LEARNING_MODEL_TTL, value: "300"}
+            - {name: TRANSFORMERS_CACHE, value: /cache}
+            - {name: HF_XET_CACHE, value: /cache/huggingface-xet}
+            - {name: MPLCONFIGDIR, value: /cache/matplotlib-config}
+          resources:
+            requests: {cpu: "500m", memory: "1Gi"}
+            limits: {cpu: "4", memory: "2Gi"}
+          volumeMounts:
+            - {name: model-cache, mountPath: /cache}
+          readinessProbe:
+            httpGet: {path: /ping, port: 3003}
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          livenessProbe:
+            httpGet: {path: /ping, port: 3003}
+            initialDelaySeconds: 60
+            periodSeconds: 20
+            failureThreshold: 6
+      volumes:
+        - name: model-cache
+          hostPath: {path: __CACHE_PATH__, type: DirectoryOrCreate}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: immich-machine-learning
+  namespace: immich
+spec:
+  type: NodePort
+  selector: {app: immich-machine-learning}
+  ports:
+    - {name: http, port: 3003, targetPort: 3003, nodePort: 30003}

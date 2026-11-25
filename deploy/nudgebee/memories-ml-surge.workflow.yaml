@@ -1,0 +1,55 @@
+# Memories: Immich ML surge -> human approval -> Flagsmith ml_lite_mode ON.
+# Based on festive-hacks-context/nudgebee/examples/event-approve-flagsmith-toggle.workflow.yaml (verified live).
+# Flagsmith: project 55989, env Development (api_key = client-side env key), feature ml_lite_mode id 303496.
+# Secret flagsmith_api_key (Flagsmith org API key) is stored in NudgeBee via RPC config_save (type "secret").
+# Applied workflows start PAUSED: run `nbctl workflow resume <id>`.
+name: memories-ml-surge
+description: When Immich ML in namespace immich is OOMKilled (HIGH event, investigation completed), ask a human to switch Memories to lite ML mode, then enable Flagsmith ml_lite_mode.
+definition:
+  version: v1
+  timeout: 40m
+  inputs: []
+  triggers:
+    - type: event
+      params:
+        "on": investigation.completed
+        filter: '{{ event.priority == "HIGH" and event.subject_namespace == "immich" and event.event_type == "pod_oom_killer_enricher" }}'
+  tasks:
+    - id: approve_lite_mode
+      type: core.approval
+      timeout: 30m
+      params:
+        message: |-
+          Memories ML surge: {{ Inputs.event.event_type }} on {{ Inputs.event.subject_namespace }}/{{ Inputs.event.subject_name }} (priority {{ Inputs.event.priority }}).
+          Immich machine-learning is running out of memory under the upload burst.
+          Switch Memories to lite ML mode (Flagsmith ml_lite_mode ON: shot coach off, analysis batch 3, cached smart search)?
+        approval_type: in_app
+        approval_options:
+          - approve
+          - reject
+    - id: enable_ml_lite_mode
+      type: integrations.http
+      depends_on:
+        - approve_lite_mode
+      if: '{{ Tasks.approve_lite_mode.output.status == ''approve'' }}'
+      params:
+        url: https://api.flagsmith.com/api/__future__/environments/__FLAGSMITH_ENV_KEY__/features/303496/
+        method: PATCH
+        headers:
+          Content-Type: application/json
+          Authorization: 'Api-Key {{ Secrets.flagsmith_api_key }}'
+        body: '{"environment_default": {"enabled": true}}'
+        timeout: 15s
+    - id: mark_shot_coach_unhealthy
+      type: integrations.http
+      depends_on:
+        - enable_ml_lite_mode
+      if: '{{ Tasks.approve_lite_mode.output.status == ''approve'' }}'
+      params:
+        # Flagsmith Feature Health webhook (provider "Webhook", project 55989); URL holds a token, stored as NudgeBee secret.
+        url: '{{ Secrets.flagsmith_health_webhook }}'
+        method: POST
+        headers:
+          Content-Type: application/json
+        body: '{"feature": "shot_coach", "environment": "Development", "status": "unhealthy", "reason": {"text_blocks": [{"title": "NudgeBee RCA", "text": "{{ Inputs.event.event_type }} on {{ Inputs.event.subject_namespace }}/{{ Inputs.event.subject_name }} (priority {{ Inputs.event.priority }}). Immich ML OOMKilled under upload burst; ml_lite_mode enabled after approval by {{ Tasks.approve_lite_mode.output.approver }}."}], "url_blocks": [{"title": "NudgeBee event", "url": "https://app.nudgebee.com/"}]}}'
+        timeout: 15s

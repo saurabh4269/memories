@@ -1,0 +1,65 @@
+import 'package:drift/drift.dart';
+import 'package:immich_mobile/constants/constants.dart';
+import 'package:immich_mobile/data/db/logger/database.dart';
+import 'package:immich_mobile/data/db/logger/table/log.dart';
+import 'package:immich_mobile/data/db/logger/table/log.drift.dart';
+import 'package:immich_mobile/domain/models/log.model.dart';
+
+class LogRepository {
+  final DriftLogger _db;
+  const LogRepository(this._db);
+
+  Future<bool> deleteAll() async {
+    await _db.logMessageEntity.deleteAll();
+    return true;
+  }
+
+  Future<List<LogMessage>> getAll({int limit = 250}) async {
+    final query = _db.logMessageEntity.select()
+      ..orderBy([(row) => OrderingTerm.desc(row.createdAt)])
+      ..limit(limit);
+
+    return query.map((log) => log.toDto()).get();
+  }
+
+  LogMessageEntityCompanion _toEntityCompanion(LogMessage log) {
+    return LogMessageEntityCompanion.insert(
+      message: log.message,
+      level: log.level,
+      createdAt: log.createdAt,
+      logger: Value(log.logger),
+      details: Value(log.error),
+      stack: Value(log.stack),
+    );
+  }
+
+  Future<bool> insert(LogMessage log) async {
+    final logEntity = _toEntityCompanion(log);
+
+    try {
+      await _db.logMessageEntity.insertOne(logEntity);
+    } catch (e) {
+      return false;
+    }
+
+    return true;
+  }
+
+  Future<bool> insertAll(Iterable<LogMessage> logs) async {
+    final logEntities = logs.map(_toEntityCompanion).toList();
+    await _db.logMessageEntity.insertAll(logEntities);
+
+    return true;
+  }
+
+  Future<void> truncate({int limit = kLogTruncateLimit, int threshold = kLogTruncateThreshold}) async {
+    final totalCount = await _db.managers.logMessageEntity.count();
+    if (totalCount > threshold) {
+      final newest = _db.selectOnly(_db.logMessageEntity)
+        ..addColumns([_db.logMessageEntity.id])
+        ..orderBy([OrderingTerm.desc(_db.logMessageEntity.createdAt)])
+        ..limit(limit);
+      await _db.logMessageEntity.deleteWhere((row) => row.id.isNotInQuery(newest));
+    }
+  }
+}

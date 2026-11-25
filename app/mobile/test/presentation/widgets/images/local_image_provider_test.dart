@@ -1,0 +1,202 @@
+import 'dart:ffi' hide Size;
+
+import 'package:ffi/ffi.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:immich_mobile/domain/models/asset/base_asset.model.dart';
+import 'package:immich_mobile/domain/models/settings_key.dart';
+import 'package:immich_mobile/infrastructure/repositories/settings.repository.dart';
+import 'package:immich_mobile/platform/local_image_api.g.dart';
+import 'package:immich_mobile/presentation/widgets/images/image_provider.dart';
+import 'package:immich_mobile/presentation/widgets/images/local_image_provider.dart';
+
+import '../../../unit/factories/local_asset_factory.dart';
+import '../../../unit/presentation/presentation_context.dart';
+
+class _StubCompleter extends ImageStreamCompleter {}
+
+void main() {
+  late ImageCache cache;
+  late int loads;
+
+  ImageStreamCompleter load() {
+    loads++;
+    return _StubCompleter();
+  }
+
+  setUp(() {
+    cache = ImageCache();
+    loads = 0;
+  });
+
+  group('LocalFullImageProvider.previewTargetSize', () {
+    const box = Size(1179, 2556);
+    const cases = <(String, Size, int?, int?, bool, Size)>[
+      ('normal', box, 4032, 3024, true, box),
+      ('missing dimensions', box, null, null, true, box),
+      ('invalid dimensions', box, 1000, 0, true, box),
+      ('long final preview', box, 1000, 30000, true, Size(16384 / 30, 16384)),
+      ('long first preview', box, 30000, 1000, false, Size(2556, 2556 / 30)),
+      ('ultra-thin preview', box, 10, 50000, false, Size(1, 2556)),
+      ('small source', box, 50, 2000, true, Size(50, 2000)),
+      ('at limit', Size(16384, 100), 1000, 1000, true, Size(16384, 100)),
+      ('over limit', Size(16385, 100), 1000, 1000, true, Size(1000, 1000)),
+    ];
+
+    for (final (name, box, width, height, previewIsFinal, expected) in cases) {
+      test(name, () {
+        final actual = LocalFullImageProvider.previewTargetSize(
+          box.width,
+          box.height,
+          width,
+          height,
+          previewIsFinal: previewIsFinal,
+        );
+        expect(actual.width, closeTo(expected.width, 1e-6));
+        expect(actual.height, closeTo(expected.height, 1e-6));
+      });
+    }
+  });
+
+  group('LocalFullImageProvider equality', () {
+    LocalFullImageProvider make({int? width, int? height}) => LocalFullImageProvider(
+      id: 'a',
+      assetType: AssetType.image,
+      size: const Size(100, 200),
+      isAnimated: false,
+      width: width,
+      height: height,
+    );
+
+    test('uses dimensions in the cache key', () {
+      final a = make(width: 100, height: 200);
+      final b = make(width: 100, height: 200);
+      expect(a, b);
+      expect(a.hashCode, b.hashCode);
+      expect(a == make(width: 200, height: 100), isFalse);
+    });
+  });
+
+  group('LocalThumbProvider caching', () {
+    LocalThumbProvider thumbWithChecksum(String? checksum) =>
+        LocalThumbProvider(id: 'asset-1', assetType: AssetType.image, checksum: checksum);
+
+    test('editing on device re-renders the thumbnail', () {
+      cache.putIfAbsent(const LocalThumbProvider(id: 'asset-1', assetType: AssetType.image, checksum: 'before'), load);
+      cache.putIfAbsent(const LocalThumbProvider(id: 'asset-1', assetType: AssetType.image, checksum: 'after'), load);
+
+      expect(loads, 2);
+    });
+
+    test('an unchanged thumbnail still comes from the cache', () {
+      cache.putIfAbsent(thumbWithChecksum('same'), load);
+      cache.putIfAbsent(thumbWithChecksum('same'), load);
+
+      expect(loads, 1);
+    });
+
+    // The rehash clears the checksum before writing the new one, so the tile has to
+    // follow that step too or it waits for the hash to land before showing the edit.
+    test('re-renders while the checksum is still being recomputed', () {
+      cache.putIfAbsent(const LocalThumbProvider(id: 'asset-1', assetType: AssetType.image, checksum: 'before'), load);
+      cache.putIfAbsent(const LocalThumbProvider(id: 'asset-1', assetType: AssetType.image), load);
+
+      expect(loads, 2);
+    });
+
+    test('stays cached while the checksum is missing', () {
+      cache.putIfAbsent(thumbWithChecksum(null), load);
+      cache.putIfAbsent(thumbWithChecksum(null), load);
+
+      expect(loads, 1);
+    });
+  });
+
+  group('factories', () {
+    test('thumbnails are keyed by the asset checksum', () {
+      final asset = LocalAssetFactory.create().copyWith(checksum: 'abc');
+
+      final provider = getThumbnailImageProvider(asset)! as LocalThumbProvider;
+
+      expect(provider.checksum, 'abc');
+    });
+  });
+
+  group('LocalFullImageProvider caching', () {
+    test('editing on device re-renders the full image', () {
+      cache.putIfAbsent(
+        const LocalFullImageProvider(
+          id: 'asset-1',
+          assetType: AssetType.image,
+          size: Size(100, 100),
+          isAnimated: false,
+          checksum: 'before',
+        ),
+        load,
+      );
+      cache.putIfAbsent(
+        const LocalFullImageProvider(
+          id: 'asset-1',
+          assetType: AssetType.image,
+          size: Size(100, 100),
+          isAnimated: false,
+          checksum: 'after',
+        ),
+        load,
+      );
+
+      expect(loads, 2);
+    });
+  });
+
+  group('LocalFullImageProvider with load original', () {
+    const api = 'dev.flutter.pigeon.immich_mobile.LocalImageApi';
+
+    testWidgets('skips the original when the preview is already full size', (tester) async {
+      final context = await PresentationContext.create();
+      addTearDown(context.dispose);
+      addTearDown(PaintingBinding.instance.imageCache.clear);
+      await SettingsRepository.instance.write(SettingsKey.imageLoadOriginal, true);
+      final requests = <(Object?, Object?)>[];
+      tester.binding.defaultBinaryMessenger
+        ..setMockDecodedMessageHandler<Object?>(
+          const BasicMessageChannel('$api.requestImage', LocalImageApi.pigeonChannelCodec),
+          (message) async {
+            final [_, _, width, height, ...] = message! as List<Object?>;
+            requests.add((width, height));
+            // every request comes back at 4x4, the photo's full size
+            return [
+              {'pointer': malloc<Uint8>(4 * 4 * 4).address, 'width': 4, 'height': 4, 'rowBytes': 4 * 4},
+            ];
+          },
+        )
+        ..setMockDecodedMessageHandler<Object?>(
+          const BasicMessageChannel('$api.cancelRequest', LocalImageApi.pigeonChannelCodec),
+          (_) async => [null],
+        );
+      const provider = LocalFullImageProvider(
+        id: 'asset-1',
+        assetType: AssetType.image,
+        size: Size(400, 800),
+        isAnimated: false,
+        width: 4,
+        height: 4,
+      );
+
+      final stream = provider.resolve(ImageConfiguration.empty);
+      final listener = ImageStreamListener((image, _) => image.dispose());
+      stream.addListener(listener);
+      for (var i = 0; i < 20; i++) {
+        await tester.runAsync(() => Future<void>.delayed(const Duration(milliseconds: 5)));
+        await tester.pump();
+      }
+      stream.removeListener(listener);
+
+      // the original is the only request without a size
+      expect(requests, isNot(contains((0, 0))));
+      // closing it keeps the image cached, so the load counted as finished
+      expect(PaintingBinding.instance.imageCache.statusForKey(provider).tracked, isTrue);
+    });
+  });
+}

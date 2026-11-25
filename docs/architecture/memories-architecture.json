@@ -1,0 +1,573 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Memories: system architecture",
+    "locale": "en",
+    "output": "docs/architecture/memories-architecture.html",
+    "quality_profile": "showcase",
+    "feedback_links": false
+  },
+  "layout": {
+    "mode": "auto"
+  },
+  "components": [
+    {
+      "id": "app",
+      "type": "frontend",
+      "label": "Memories Android app",
+      "sublabel": "Flutter fork of Immich app",
+      "explanation": "Fork of the Immich Flutter app. Make-a-reel (voice prompt), two-cut player and live preview from the EDL, editor, camera with shot coach, QR join, elder mode, post to socials.",
+      "pos": [
+        32,
+        30
+      ],
+      "size": [
+        200,
+        56
+      ]
+    },
+    {
+      "id": "caddy",
+      "type": "security",
+      "label": "Caddy :443",
+      "sublabel": "Let's Encrypt TLS",
+      "explanation": "memories-3870f5.centralindia.cloudapp.azure.com: / -> 127.0.0.1:2283 (Immich), /director/* -> 127.0.0.1:8010. postiz.74-225-200-30.sslip.io -> 127.0.0.1:4007.",
+      "pos": [
+        32,
+        270
+      ],
+      "size": [
+        150,
+        56
+      ]
+    },
+    {
+      "id": "immich",
+      "type": "backend",
+      "label": "Immich server v3.4.2",
+      "sublabel": ":2283 REST, albums, thumbnails, people, smart search",
+      "pos": [
+        32,
+        670
+      ],
+      "size": [
+        340,
+        56
+      ]
+    },
+    {
+      "id": "pg",
+      "type": "database",
+      "label": "Postgres 14",
+      "sublabel": "VectorChord",
+      "pos": [
+        32,
+        800
+      ],
+      "size": [
+        105,
+        56
+      ]
+    },
+    {
+      "id": "valkey",
+      "type": "messagebus",
+      "label": "Valkey",
+      "sublabel": "job queues",
+      "pos": [
+        149,
+        800
+      ],
+      "size": [
+        105,
+        56
+      ]
+    },
+    {
+      "id": "library",
+      "type": "database",
+      "label": "Media files",
+      "sublabel": "Premium SSD",
+      "pos": [
+        267,
+        800
+      ],
+      "size": [
+        105,
+        56
+      ]
+    },
+    {
+      "id": "ml",
+      "type": "backend",
+      "label": "Immich ML (k3s)",
+      "sublabel": "NodePort 30003, CLIP, faces",
+      "pos": [
+        472,
+        670
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "nbagent",
+      "type": "security",
+      "label": "NudgeBee agent",
+      "sublabel": "ns nudgebee-agent",
+      "tag": "SPONSOR",
+      "pos": [
+        472,
+        800
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "api",
+      "type": "backend",
+      "label": "Director API",
+      "sublabel": ":8010, reels, EDL, join",
+      "explanation": "api.py, editor_api.py (EDL, alternatives, re-render, OTIO export), join_api.py (invite codes, QR, Immich user redeem), extras_api.py (invite card, Dictate, voiceover, translate), postiz_api.py.",
+      "pos": [
+        472,
+        270
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "poller",
+      "type": "backend",
+      "label": "Analysis poller",
+      "sublabel": "every 10 s, new assets",
+      "pos": [
+        472,
+        530
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "director",
+      "type": "backend",
+      "label": "Agentic director",
+      "sublabel": "tool loop, grammar, QA",
+      "pos": [
+        472,
+        400
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "render",
+      "type": "backend",
+      "label": "ffmpeg renderer",
+      "sublabel": "x264, parallel segments",
+      "pos": [
+        252,
+        400
+      ],
+      "size": [
+        150,
+        56
+      ]
+    },
+    {
+      "id": "sqlite",
+      "type": "database",
+      "label": "SQLite + DATA_DIR",
+      "sublabel": "analysis, segments",
+      "pos": [
+        252,
+        530
+      ],
+      "size": [
+        150,
+        56
+      ]
+    },
+    {
+      "id": "facet",
+      "type": "backend",
+      "label": "Facet (in progress)",
+      "sublabel": "MIT scoring, planned",
+      "pos": [
+        252,
+        150
+      ],
+      "size": [
+        150,
+        56
+      ]
+    },
+    {
+      "id": "postiz",
+      "type": "backend",
+      "label": "Postiz :4007",
+      "sublabel": "Postgres, Redis, Temporal",
+      "pos": [
+        472,
+        150
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "flagsmith",
+      "type": "cloud",
+      "label": "Flagsmith",
+      "sublabel": "flags, experiment, health",
+      "tag": "SPONSOR",
+      "pos": [
+        832,
+        262
+      ],
+      "size": [
+        160,
+        50
+      ]
+    },
+    {
+      "id": "nudgebee",
+      "type": "cloud",
+      "label": "NudgeBee cloud",
+      "sublabel": "RCA, workflow, approval",
+      "tag": "SPONSOR",
+      "pos": [
+        832,
+        800
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "telegram",
+      "type": "external",
+      "label": "Telegram channel",
+      "sublabel": "not connected yet",
+      "pos": [
+        832,
+        150
+      ],
+      "size": [
+        160,
+        56
+      ]
+    },
+    {
+      "id": "s_speech",
+      "type": "cloud",
+      "label": "Dictate + saaras:v4",
+      "sublabel": "plus Doc AI, mayura, bulbul",
+      "tag": "SPONSOR",
+      "pos": [
+        832,
+        346
+      ],
+      "size": [
+        160,
+        50
+      ],
+      "explanation": "Dictate turns a Hindi/Hinglish voice prompt into text and a JSON intent, with saaras:v4 STT as fallback. Document AI reads invitation cards into a shot list. mayura:v1 translates coach cards. bulbul:v4-flash speaks voiceovers."
+    },
+    {
+      "id": "s_105b",
+      "type": "cloud",
+      "label": "sarvam-105b",
+      "sublabel": "director, tool calls",
+      "tag": "SPONSOR",
+      "pos": [
+        832,
+        404
+      ],
+      "size": [
+        160,
+        50
+      ]
+    },
+    {
+      "id": "s_gemma",
+      "type": "cloud",
+      "label": "gemma4 (hosted)",
+      "sublabel": "shot analysis",
+      "tag": "SPONSOR",
+      "pos": [
+        832,
+        534
+      ],
+      "size": [
+        160,
+        50
+      ]
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "Phone (Android)",
+      "wraps": [
+        "app"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)",
+      "wraps": [
+        "caddy",
+        "immich",
+        "pg",
+        "valkey",
+        "library",
+        "ml",
+        "nbagent",
+        "api",
+        "poller",
+        "director",
+        "render",
+        "sqlite",
+        "facet",
+        "postiz"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "docker compose /opt/immich",
+      "wraps": [
+        "immich",
+        "pg",
+        "valkey",
+        "library"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "k3s single node",
+      "wraps": [
+        "ml",
+        "nbagent"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Memories director container",
+      "wraps": [
+        "api",
+        "poller",
+        "director",
+        "render",
+        "sqlite"
+      ]
+    },
+    {
+      "kind": "region",
+      "label": "Third-party SaaS (HTTPS 443)",
+      "wraps": [
+        "flagsmith",
+        "nudgebee",
+        "telegram",
+        "s_speech",
+        "s_105b",
+        "s_gemma"
+      ]
+    },
+    {
+      "kind": "security-group",
+      "label": "Sarvam AI, api.sarvam.ai",
+      "wraps": [
+        "s_speech",
+        "s_105b",
+        "s_gemma"
+      ],
+      "pad": 10
+    }
+  ],
+  "connections": [
+    {
+      "from": "app",
+      "to": "caddy",
+      "label": "1 upload, 4 reel request (HTTPS)",
+      "variant": "emphasis"
+    },
+    {
+      "from": "caddy",
+      "to": "api",
+      "label": "/director/* -> :8010",
+      "variant": "emphasis"
+    },
+    {
+      "from": "caddy",
+      "to": "immich",
+      "label": "/api -> :2283",
+      "variant": "emphasis"
+    },
+    {
+      "from": "immich",
+      "to": "pg",
+      "label": "SQL"
+    },
+    {
+      "from": "immich",
+      "to": "valkey",
+      "label": "jobs"
+    },
+    {
+      "from": "immich",
+      "to": "library",
+      "label": "files"
+    },
+    {
+      "from": "immich",
+      "to": "ml",
+      "label": "2 faces+CLIP",
+      "variant": "dashed"
+    },
+    {
+      "from": "poller",
+      "to": "immich",
+      "label": "3 new assets",
+      "variant": "dashed"
+    },
+    {
+      "from": "poller",
+      "to": "s_gemma",
+      "label": "3 gemma4, 6 img/call",
+      "variant": "dashed"
+    },
+    {
+      "from": "poller",
+      "to": "sqlite",
+      "label": "cache"
+    },
+    {
+      "from": "api",
+      "to": "s_speech",
+      "label": "5 voice prompt"
+    },
+    {
+      "from": "api",
+      "to": "flagsmith",
+      "label": "6 flags, 11 reel_shared"
+    },
+    {
+      "from": "api",
+      "to": "director",
+      "label": "6 intent"
+    },
+    {
+      "from": "director",
+      "to": "s_105b",
+      "label": "6 tool calls"
+    },
+    {
+      "from": "director",
+      "to": "render",
+      "label": "7 EDL"
+    },
+    {
+      "from": "render",
+      "to": "immich",
+      "label": "8 originals (Range)"
+    },
+    {
+      "from": "render",
+      "to": "sqlite",
+      "label": "9 preview, final"
+    },
+    {
+      "from": "api",
+      "to": "postiz",
+      "label": "10 post reel",
+      "variant": "dashed"
+    },
+    {
+      "from": "postiz",
+      "to": "telegram",
+      "label": "publish",
+      "variant": "dashed"
+    },
+    {
+      "from": "nbagent",
+      "to": "ml",
+      "label": "watches",
+      "variant": "dashed"
+    },
+    {
+      "from": "nbagent",
+      "to": "nudgebee",
+      "label": "events, wss 443",
+      "variant": "security"
+    },
+    {
+      "from": "nudgebee",
+      "to": "flagsmith",
+      "label": "ml_lite_mode ON",
+      "variant": "security",
+      "fromSide": "right",
+      "toSide": "right",
+      "via": [
+        [
+          1044,
+          828
+        ],
+        [
+          1044,
+          287
+        ]
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Reel flow (numbers on arrows)",
+      "items": [
+        "1 Phone backs up photos and videos to Immich",
+        "2 Immich makes thumbnails, runs faces and CLIP in Immich ML",
+        "3 Poller analyses new assets: keyframes, contact sheets, gemma4, team score (Facet scores planned)",
+        "4 User speaks a prompt in the app (POST /director/v1/reels)",
+        "5 Dictate turns speech into an intent",
+        "6 Flagsmith picks single_shot or agentic, sarvam-105b plans with tools over Immich",
+        "7 Code validates the EDL: ids, trims, beat, length",
+        "8 Segments render in parallel from originals",
+        "9 Two previews return, finals render speculatively",
+        "10 Share via Android share sheet, or Postiz",
+        "11 reel_shared goes to Flagsmith as the experiment metric"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Sponsor tools",
+      "items": [
+        "Sarvam AI: shot analysis, director with tools, speech to intent, invite cards, translation, voiceover",
+        "Flagsmith: experiment, elder_mode segment, shot_coach rollout, render_profile/peak_mode, ml_lite_mode kill switch, Feature Health",
+        "NudgeBee: watches Immich ML in k3s, RCA, workflow memories-ml-surge with human approval"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Sync vs async",
+      "items": [
+        "Solid: request path the user waits on",
+        "Dashed: background or fire-and-forget (ML jobs, poller, Postiz)",
+        "Red: ops path from NudgeBee into Flagsmith",
+        "No inbound port for NudgeBee: the agent dials out"
+      ]
+    }
+  ]
+}

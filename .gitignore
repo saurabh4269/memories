@@ -1,0 +1,94 @@
+# --- private notes / research (never commit) ---
+knowledge-dump/
+
+# --- secrets ---
+.env
+.env.*
+*.env
+!.env.example
+!**/.env.example
+# machine-local deploy target (see deploy/.vm.env.example); *.env above matches it too
+deploy/.vm.env
+!deploy/.vm.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+key.properties
+id_rsa*
+id_ed25519*
+*.ppk
+.ssh/
+kubeconfig
+kubeconfig*
+*.kubeconfig
+.kube/
+deploy/**/secrets*
+deploy/**/*secret*.yaml
+deploy/**/*.local.*
+credentials*.json
+service-account*.json
+
+# --- runtime data / caches ---
+data/
+server/data/
+*.sqlite
+*.sqlite3
+*.sqlite-*
+*.db
+*.log
+deploy/surge/*.log
+
+# --- python / node ---
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+dist/
+web/dist/
+
+# --- flutter / android / ios build outputs ---
+build/
+.dart_tool/
+.gradle/
+.kotlin/
+.cxx/
+.fvm/
+local.properties
+ios/Pods/
+**/ios/Pods/
+**/Flutter/ephemeral/
+.flutter-plugins
+.flutter-plugins-dependencies
+target/
+*.apk
+*.aab
+*.ipa
+
+# --- large media (curated assets are re-included below) ---
+*.mp4
+*.mov
+*.mkv
+*.webm
+*.m4a
+*.wav
+*.mp3
+*.heic
+*.zip
+*.tar
+*.tar.gz
+!server/assets/music/*.mp3
+
+# --- editors / OS ---
+.DS_Store
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+PLAN.md

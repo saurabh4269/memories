@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "diagram_type": "sequence",
+  "meta": {
+    "title": "Ops loop: NudgeBee and Flagsmith under an upload surge",
+    "locale": "en",
+    "output": "docs/architecture/ops-loop.html",
+    "quality_profile": "showcase",
+    "feedback_links": false
+  },
+  "participants": [
+    {
+      "id": "burst",
+      "type": "external",
+      "label": "Upload burst",
+      "sublabel": "100 photos"
+    },
+    {
+      "id": "ml",
+      "type": "backend",
+      "label": "Immich ML",
+      "sublabel": "k3s ns immich"
+    },
+    {
+      "id": "agent",
+      "type": "security",
+      "label": "NudgeBee agent",
+      "sublabel": "k3s, outbound"
+    },
+    {
+      "id": "nb",
+      "type": "cloud",
+      "label": "NudgeBee",
+      "sublabel": "RCA + workflow"
+    },
+    {
+      "id": "human",
+      "type": "external",
+      "label": "On-call human",
+      "sublabel": "NudgeBee UI"
+    },
+    {
+      "id": "fs",
+      "type": "cloud",
+      "label": "Flagsmith",
+      "sublabel": "Edge API"
+    },
+    {
+      "id": "dir",
+      "type": "backend",
+      "label": "Director",
+      "sublabel": "FastAPI"
+    }
+  ],
+  "segments": [
+    {
+      "from": 150,
+      "to": 300,
+      "label": "Detect"
+    },
+    {
+      "from": 316,
+      "to": 450,
+      "label": "Decide (human in the loop)"
+    },
+    {
+      "from": 466,
+      "to": 650,
+      "label": "Act and degrade gracefully"
+    }
+  ],
+  "messages": [
+    {
+      "from": "burst",
+      "to": "ml",
+      "y": 180,
+      "label": "faces + CLIP, concurrency 16",
+      "variant": "emphasis"
+    },
+    {
+      "from": "ml",
+      "to": "agent",
+      "y": 224,
+      "label": "OOMKilled (demo limit 700Mi)",
+      "variant": "dashed"
+    },
+    {
+      "from": "agent",
+      "to": "nb",
+      "y": 268,
+      "label": "HIGH event over wss 443",
+      "variant": "security",
+      "note": "AI investigation finds the root cause"
+    },
+    {
+      "from": "nb",
+      "to": "human",
+      "y": 346,
+      "label": "investigation.completed: approve?",
+      "variant": "emphasis",
+      "note": "workflow memories-ml-surge"
+    },
+    {
+      "from": "human",
+      "to": "nb",
+      "y": 420,
+      "label": "approve (core.approval)",
+      "variant": "return"
+    },
+    {
+      "from": "nb",
+      "to": "fs",
+      "y": 496,
+      "label": "PATCH ml_lite_mode ON",
+      "variant": "security"
+    },
+    {
+      "from": "nb",
+      "to": "fs",
+      "y": 536,
+      "label": "POST Feature Health: shot_coach unhealthy",
+      "variant": "security"
+    },
+    {
+      "from": "dir",
+      "to": "fs",
+      "y": 576,
+      "label": "read flags (15 s cache)",
+      "variant": "default"
+    },
+    {
+      "from": "fs",
+      "to": "dir",
+      "y": 616,
+      "label": "ml_lite_mode on: coach off, batch 3",
+      "variant": "return"
+    }
+  ],
+  "activations": [
+    {
+      "participant": "ml",
+      "from": 174,
+      "to": 232,
+      "type": "backend"
+    },
+    {
+      "participant": "nb",
+      "from": 262,
+      "to": 544,
+      "type": "cloud"
+    },
+    {
+      "participant": "fs",
+      "from": 490,
+      "to": 624,
+      "type": "cloud"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "rose",
+      "title": "Live run, take 1 (2026-11-25)",
+      "items": [
+        "OOM 10 s after the burst started",
+        "NudgeBee HIGH event about 2 s after the OOM",
+        "Event to investigation.completed: about 3 min 46 s",
+        "Approval to ml_lite_mode=true on the Edge API: 6 s"
+      ]
+    },
+    {
+      "dot": "amber",
+      "title": "Honesty",
+      "items": [
+        "The surge is staged: 700Mi limit is below the measured 0.9 GiB working set",
+        "Normal settings: 2Gi limit, job concurrency 2",
+        "The event, investigation, approval and flag change are real"
+      ]
+    }
+  ]
+}

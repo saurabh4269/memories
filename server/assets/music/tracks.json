@@ -1,0 +1,102 @@
+[
+  {
+    "file": "carefree.mp3",
+    "title": "Carefree",
+    "mood": "joyful",
+    "moods": [
+      "joyful",
+      "festive",
+      "candid"
+    ],
+    "bpm": 95.7,
+    "beat_offset": 0.163,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Carefree.mp3",
+    "attribution": "\"Carefree\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "life_of_riley.mp3",
+    "title": "Life of Riley",
+    "mood": "joyful",
+    "moods": [
+      "joyful",
+      "funny",
+      "festive"
+    ],
+    "bpm": 103.4,
+    "beat_offset": 0.07,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Life%20of%20Riley.mp3",
+    "attribution": "\"Life of Riley\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "wholesome.mp3",
+    "title": "Wholesome",
+    "mood": "emotional",
+    "moods": [
+      "emotional",
+      "calm"
+    ],
+    "bpm": 129.2,
+    "beat_offset": 0.0,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Wholesome.mp3",
+    "attribution": "\"Wholesome\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "heartwarming.mp3",
+    "title": "Heartwarming",
+    "mood": "emotional",
+    "moods": [
+      "emotional",
+      "calm",
+      "formal"
+    ],
+    "bpm": 107.7,
+    "beat_offset": 0.511,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heartwarming.mp3",
+    "attribution": "\"Heartwarming\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "fluffing_a_duck.mp3",
+    "title": "Fluffing a Duck",
+    "mood": "funny",
+    "moods": [
+      "funny",
+      "candid"
+    ],
+    "bpm": 123.0,
+    "beat_offset": 0.418,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Fluffing%20a%20Duck.mp3",
+    "attribution": "\"Fluffing a Duck\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "sovereign.mp3",
+    "title": "Sovereign",
+    "mood": "formal",
+    "moods": [
+      "formal",
+      "emotional",
+      "festive"
+    ],
+    "bpm": 112.3,
+    "beat_offset": 0.441,
+    "licence": "CC BY 4.0",
+    "licence_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sovereign.mp3",
+    "attribution": "\"Sovereign\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
+    "note": "Trimmed to first 60 s with a 2 s fade."
+  }
+]

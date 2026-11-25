@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memories Studio</title>
+<style>
+:root{--bg:#0f0d12;--card:#1b1820;--fg:#f4eee6;--mut:#a59cae;--acc:#ffb347;--line:#2c2733}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Noto Sans","Noto Sans Devanagari",sans-serif}
+main{max-width:980px;margin:0 auto;padding:16px}
+h1{font-size:22px;margin:4px 0 12px}h1 span{color:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:14px}
+label{display:block;color:var(--mut);font-size:13px;margin:8px 0 4px}
+select,textarea,input{width:100%;box-sizing:border-box;background:#0c0a0f;color:var(--fg);border:1px solid var(--line);border-radius:10px;padding:10px;font:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}.chip{padding:7px 12px;border-radius:99px;border:1px solid var(--line);cursor:pointer;user-select:none}
+.chip.on{background:var(--acc);color:#1a1209;border-color:var(--acc)}
+button{background:var(--acc);color:#1a1209;border:0;border-radius:10px;padding:11px 18px;font-weight:700;cursor:pointer;margin-top:12px}
+button:disabled{opacity:.5}
+.cuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+video{width:100%;aspect-ratio:9/16;background:#000;border-radius:12px}
+.mut{color:var(--mut);font-size:13px}pre{white-space:pre-wrap;font-size:12px;color:var(--mut);max-height:320px;overflow:auto}
+.badge{display:inline-block;background:#3a2a10;color:var(--acc);border-radius:6px;padding:2px 8px;font-size:12px}
+</style></head><body><main>
+<h1>Memories <span>Studio</span></h1>
+<div class="card">
+<label>Event album</label><select id="album"></select>
+<label>What do you want? (Hindi / English / Hinglish)</label>
+<textarea id="prompt" rows="2">WA status ke liye family wali, thoda emotional</textarea>
+<label>Your name</label><input id="member" placeholder="e.g. Saurabh">
+<label>Destination</label>
+<div class="chips" id="dest"><div class="chip on" data-v="wa_status">WhatsApp Status</div><div class="chip" data-v="insta_reel">Insta Reel</div><div class="chip" data-v="insta_story">Insta Story</div></div>
+<button id="go">Make my two cuts</button> <span id="status" class="mut"></span>
+</div>
+<div class="cuts" id="cuts"></div>
+<div class="card"><b>Under the hood</b> <span id="mode" class="badge"></span><pre id="hood">-</pre></div>
+</main>
+<script>
+const $=s=>document.querySelector(s);let dest="wa_status";
+document.querySelectorAll("#dest .chip").forEach(c=>c.onclick=()=>{document.querySelectorAll("#dest .chip").forEach(x=>x.classList.remove("on"));c.classList.add("on");dest=c.dataset.v});
+fetch("v1/albums").then(r=>r.json()).then(j=>{$("#album").innerHTML=j.albums.map(a=>`<option value="${a.id}">${a.albumName} (${a.assetCount})</option>`).join("")}).catch(e=>$("#status").textContent="could not list albums");
+function esc(s){return String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+async function finalize(id,i,btn){btn.disabled=true;btn.textContent="Rendering 1080p...";const r=await fetch(`v1/reels/${id}/final/${i}`,{method:"POST"});const j=await r.json();
+ if(j.final_url){btn.outerHTML=`<a href="${j.final_url}" download><button>Download 1080p (${(j.timings?.total_ms/1000||0).toFixed(1)} s render)</button></a>`;fetch(`v1/reels/${id}/shared`,{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({cut:i,target:dest})})}else{btn.textContent="Failed";}}
+$("#go").onclick=async()=>{$("#go").disabled=true;$("#status").textContent="Directing... (analysis, plan, render)";$("#cuts").innerHTML="";const t0=performance.now();
+ try{const r=await fetch("v1/reels",{method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify({album_id:$("#album").value,prompt:$("#prompt").value,destination:dest,member_name:$("#member").value||null})});
+ const j=await r.json();if(!r.ok)throw new Error(JSON.stringify(j));
+ $("#status").textContent=`done in ${((performance.now()-t0)/1000).toFixed(1)} s · ${j.strategy} · ${j.label}`;$("#mode").textContent="mode: "+j.mode;
+ $("#cuts").innerHTML=j.cuts.map((c,i)=>`<div class="card"><b>${esc(c.title)}</b> <span class="badge">${esc(c.source)} · ${c.total_s}s</span><p class="mut">${esc(c.why)}</p>
+ <video src="${c.preview_url}" poster="${c.cover_url}" controls playsinline loop></video><p class="mut">♪ ${esc(c.music?.title)} — ${esc(c.music?.attribution)}</p><button data-i="${i}">Get 1080p</button></div>`).join("");
+ document.querySelectorAll("#cuts button").forEach(b=>b.onclick=()=>finalize(j.reel_id,+b.dataset.i,b));
+ $("#hood").textContent=JSON.stringify({timings:j.timings,trace:j.trace},null,1);
+ }catch(e){$("#status").textContent="error: "+e.message}finally{$("#go").disabled=false}};
+</script></body></html>
