@@ -44,6 +44,9 @@ Android only for now. Download the APK from the release page, or scan the QR cod
 
 Judges on the Play internal testing list can also install it from Google Play.
 
+**Judges: no password needed.** Open the app, tap **Join a family event**, enter code **qpt255tv** (or scan the QR at https://memories-3870f5.centralindia.cloudapp.azure.com/director/join/qpt255tv), type your name and pick a language. You land in the real Festive Hacks 2026 album and can make reels right away. The code is valid until 2 Dec 2026.
+
+
 ## Demo video
 
 <!-- TODO: demo video URL -->
@@ -400,7 +403,7 @@ uv run python -m memories.demo --album <album-id> --prompt "WA status ke liye fa
 
 Tests: `uv run pytest -q`. A small web page for testing is at `http://<host>:8000/studio`.
 
-On our VM the director runs on `127.0.0.1:8010` and Caddy sends `https://<host>/director/*` to it, so the app and the studio use `https://<host>/director` as the base URL. The API is described in [docs/API-CONTRACT.md](docs/API-CONTRACT.md).
+On our VM the director runs in k3s (namespace `memories`, hostNetwork on `127.0.0.1:8018`; redeploy with [`deploy/director-redeploy.sh`](deploy/director-redeploy.sh)) and Caddy sends `https://<host>/director/*` to it, so the app and the studio use `https://<host>/director` as the base URL. The API is described in [docs/API-CONTRACT.md](docs/API-CONTRACT.md).
 
 ### 8. Flutter app
 
