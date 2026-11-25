@@ -59,7 +59,7 @@ retry "${SSH[@]}" "$VM" 'set -e; cd /opt/appbuild
 # Poll instead of holding one long ssh session (the VM link resets now and then).
 while true; do
   sleep 30
-  status="$("${SSH[@]}" "$VM" 'if pgrep -f build-inner.sh >/dev/null; then echo RUNNING; elif grep -q "SUCCESS in" /opt/appbuild/build.log; then echo SUCCESS; else echo FAILED; fi' 2>/dev/null || echo UNKNOWN)"
+  status="$("${SSH[@]}" "$VM" 'if pgrep -f "[b]uild-inner[.]sh" >/dev/null; then echo RUNNING; elif grep -q "SUCCESS in" /opt/appbuild/build.log; then echo SUCCESS; else echo FAILED; fi' 2>/dev/null || echo UNKNOWN)"
   case "$status" in
     RUNNING|UNKNOWN) "${SSH[@]}" "$VM" 'tail -n 1 /opt/appbuild/build.log' 2>/dev/null || true ;;
     SUCCESS) "${SSH[@]}" "$VM" 'tail -n 4 /opt/appbuild/build.log'; break ;;
