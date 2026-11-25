@@ -29,6 +29,21 @@ The same thing happens at weddings, and at events like this hackathon.
 
 The VM shuts down every night at 02:00 IST to save money, so these links can be down at night.
 
+## Install the app
+
+Android only for now. Download the APK from the release page, or scan the QR code on your phone.
+
+- APK: https://github.com/saurabh4269/memories/releases/download/v0.1.0-festive-hacks/memories-0.1.0.apk
+- Release page: https://github.com/saurabh4269/memories/releases/tag/v0.1.0-festive-hacks
+
+<img src="docs/screenshots/apk-qr.png" width="180" alt="QR code for the Memories APK download">
+
+1. Open the APK on your phone. If Android asks, allow installs from unknown sources for your browser or file manager.
+2. Open Memories. The server URL is already filled in: `https://memories-3870f5.centralindia.cloudapp.azure.com`.
+3. Log in with your account on that server.
+
+Judges on the Play internal testing list can also install it from Google Play.
+
 ## Demo video
 
 <!-- TODO: demo video URL -->
