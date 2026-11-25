@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 1125 944" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14" style="--flow-cycle: 6.197s; width: 1125px; height: 944px; min-width: 0px;" width="1125" height="944" xmlns="http://www.w3.org/2000/svg" data-theme="dark"><style>
+<svg viewBox="0 0 1125 944" role="img" lang="en" aria-labelledby="archify-diagram-title archify-diagram-description" data-animation="trace" data-preset="classic" data-quality-profile="showcase" data-node-ui="" data-reader-fit="intrinsic-height" data-reader-min-text="7.5" data-reader-primary-text="14" style="--flow-cycle: 4.986s; width: 1125px; height: 944px; min-width: 0px;" width="1125" height="944" xmlns="http://www.w3.org/2000/svg" data-theme="dark"><style>
 /*
 JetBrains Mono variable WOFF2 subsets from Google Fonts service revision v24.
 These fixed bytes are shared by the viewer and its SVG/raster exports.
@@ -432,369 +432,386 @@ svg[data-preset="editorial"] { --flow-halo-peak: 0.07; --flow-glow-peak: 0.28; -
 }
 @keyframes archify-relay-ripple { 
   0% { r: 2px; opacity: var(--flow-peak, 0.6); }
-  12.102%, 100% { r: 20px; opacity: 0; }
+  15.041%, 100% { r: 20px; opacity: 0; }
 }
 @keyframes archify-relay-comet-0 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  10.604% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  13.186%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  13.179% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  16.388%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-0 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  10.604% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  25.127%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  13.179% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  31.228%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-1 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  16.713% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  19.295%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  20.771% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  23.98%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-1 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  16.713% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  31.236%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  20.771% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  38.82%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-2 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  19.825% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  22.407%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  24.639% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  27.848%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-2 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  19.825% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  34.348%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  24.639% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  42.688%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-3 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-3 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-4 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-4 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-5 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-5 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-6 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-6 { 
-  0%, 2.033% { opacity: 0; }
-  6.777% { opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 2.527% { opacity: 0; }
+  8.423% { opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-7 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  12.677% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  15.259%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  15.755% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  18.964%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-7 { 
-  0%, 3.803% { opacity: 0; }
-  12.677% { opacity: var(--flow-peak, 0.3); }
-  27.2%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 4.727% { opacity: 0; }
+  15.755% { opacity: var(--flow-peak, 0.3); }
+  33.805%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-8 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  11.526% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  14.108%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  14.325% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  17.534%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-8 { 
-  0%, 3.458% { opacity: 0; }
-  11.526% { opacity: var(--flow-peak, 0.3); }
-  26.049%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 4.297% { opacity: 0; }
+  14.325% { opacity: var(--flow-peak, 0.3); }
+  32.374%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-9 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-9 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-10 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  14.349% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  16.931%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  17.833% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  21.042%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-10 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  14.349% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  28.872%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  17.833% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  35.883%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-11 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  11.526% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  14.108%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  14.325% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  17.534%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-11 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  11.526% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  26.049%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  14.325% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  32.374%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-12 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-12 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-13 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  11.526% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  14.108%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  14.325% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  17.534%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-13 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  11.526% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  26.049%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  14.325% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  32.374%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-14 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-14 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-15 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  15.559% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  18.141%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  19.338% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  22.546%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-15 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  15.559% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  30.082%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  19.338% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  37.387%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-16 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-16 { 
   0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  6.777% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-17 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-17 { 
-  0%, 2.033% { opacity: 0; }
-  6.777% { opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
+  8.423% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-18 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  11.526% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  14.108%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  14.325% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  17.534%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-18 { 
-  0%, 3.458% { opacity: 0; }
-  11.526% { opacity: var(--flow-peak, 0.3); }
-  26.049%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0% { stroke-dashoffset: var(--flow-len, 0px); opacity: var(--flow-peak, 0.3); animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
+  14.325% { stroke-dashoffset: 0px; opacity: var(--flow-peak, 0.3); }
+  32.374%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-19 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.355% { opacity: var(--flow-peak, 0.9); }
-  6.777% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  9.359%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  1.685% { opacity: var(--flow-peak, 0.9); }
+  8.423% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  11.632%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-19 { 
-  0%, 2.033% { opacity: 0; }
-  6.777% { opacity: var(--flow-peak, 0.3); }
-  21.3%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 2.527% { opacity: 0; }
+  8.423% { opacity: var(--flow-peak, 0.3); }
+  26.472%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-20 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  11.526% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  14.108%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  14.325% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  17.534%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-20 { 
-  0%, 3.458% { opacity: 0; }
-  11.526% { opacity: var(--flow-peak, 0.3); }
-  26.049%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 4.297% { opacity: 0; }
+  14.325% { opacity: var(--flow-peak, 0.3); }
+  32.374%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-comet-21 { 
   0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
-  1.936% { opacity: var(--flow-peak, 0.9); }
-  24.205% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
-  26.787%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+  2.407% { opacity: var(--flow-peak, 0.9); }
+  30.082% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  33.291%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
 }
 @keyframes archify-relay-wake-21 { 
-  0%, 7.261% { opacity: 0; }
-  24.205% { opacity: var(--flow-peak, 0.3); }
-  38.728%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+  0%, 9.025% { opacity: 0; }
+  30.082% { opacity: var(--flow-peak, 0.3); }
+  48.132%, 100% { stroke-dashoffset: 0px; opacity: 0; }
+}
+@keyframes archify-relay-comet-22 { 
+  0% { stroke-dashoffset: calc(var(--flow-len, 0px) + var(--flow-shift, 0px)); opacity: 0; animation-timing-function: cubic-bezier(0.45, 0.05, 0.35, 1); }
+  2.335% { opacity: var(--flow-peak, 0.9); }
+  11.674% { stroke-dashoffset: var(--flow-shift, 0px); opacity: var(--flow-peak, 0.9); }
+  14.883%, 100% { stroke-dashoffset: var(--flow-shift, 0px); opacity: 0; }
+}
+@keyframes archify-relay-wake-22 { 
+  0%, 3.502% { opacity: 0; }
+  11.674% { opacity: var(--flow-peak, 0.3); }
+  29.723%, 100% { stroke-dashoffset: 0px; opacity: 0; }
 }
 @keyframes archify-relay-node-0 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
   0% { filter: var(--ambient-node-base-filter, none); }
-  1.936%, 6.777% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  19.364% { filter: var(--ambient-node-base-filter, none); }
+  2.407%, 8.423% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  24.066% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-1 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
   0% { filter: var(--ambient-node-base-filter, none); }
-  1.936%, 6.777% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  19.364% { filter: var(--ambient-node-base-filter, none); }
+  2.407%, 8.423% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  24.066% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-2 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
   0% { filter: var(--ambient-node-base-filter, none); }
-  1.936%, 6.777% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  19.364% { filter: var(--ambient-node-base-filter, none); }
+  2.407%, 8.423% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  24.066% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-3 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  10.604% { filter: var(--ambient-node-base-filter, none); }
-  12.54%, 17.381% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  29.968% { filter: var(--ambient-node-base-filter, none); }
+  0% { filter: var(--ambient-node-base-filter, none); }
+  2.407%, 8.423% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  24.066% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-4 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  12.677% { filter: var(--ambient-node-base-filter, none); }
-  14.614%, 19.455% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  32.041% { filter: var(--ambient-node-base-filter, none); }
+  13.179% { filter: var(--ambient-node-base-filter, none); }
+  15.585%, 21.602% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  37.245% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-5 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  11.526% { filter: var(--ambient-node-base-filter, none); }
-  13.463%, 18.304% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  30.89% { filter: var(--ambient-node-base-filter, none); }
+  15.755% { filter: var(--ambient-node-base-filter, none); }
+  18.162%, 24.178% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  39.821% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-6 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  6.777% { filter: var(--ambient-node-base-filter, none); }
-  8.714%, 13.555% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  26.141% { filter: var(--ambient-node-base-filter, none); }
+  14.325% { filter: var(--ambient-node-base-filter, none); }
+  16.731%, 22.748% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  38.391% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-7 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  6.777% { filter: var(--ambient-node-base-filter, none); }
-  8.714%, 13.555% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  26.141% { filter: var(--ambient-node-base-filter, none); }
+  8.423% { filter: var(--ambient-node-base-filter, none); }
+  10.83%, 16.846% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  32.489% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-8 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  11.526% { filter: var(--ambient-node-base-filter, none); }
-  13.463%, 18.304% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  30.89% { filter: var(--ambient-node-base-filter, none); }
+  8.423% { filter: var(--ambient-node-base-filter, none); }
+  10.83%, 16.846% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  32.489% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-9 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  28.931% { filter: var(--ambient-node-base-filter, none); }
-  30.867%, 35.708% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  48.295% { filter: var(--ambient-node-base-filter, none); }
+  14.325% { filter: var(--ambient-node-base-filter, none); }
+  16.731%, 22.748% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  38.391% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-10 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  37.345% { filter: var(--ambient-node-base-filter, none); }
-  39.281%, 44.122% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  56.709% { filter: var(--ambient-node-base-filter, none); }
+  11.674% { filter: var(--ambient-node-base-filter, none); }
+  14.08%, 20.097% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  35.74% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-11 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  21.068% { filter: var(--ambient-node-base-filter, none); }
-  23.005%, 27.846% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  40.432% { filter: var(--ambient-node-base-filter, none); }
+  31.513% { filter: var(--ambient-node-base-filter, none); }
+  33.919%, 39.936% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  55.579% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-12 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  21.068% { filter: var(--ambient-node-base-filter, none); }
-  23.005%, 27.846% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  40.432% { filter: var(--ambient-node-base-filter, none); }
+  28.004% { filter: var(--ambient-node-base-filter, none); }
+  30.411%, 36.427% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  52.07% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-13 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  21.068% { filter: var(--ambient-node-base-filter, none); }
-  23.005%, 27.846% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  40.432% { filter: var(--ambient-node-base-filter, none); }
+  22.102% { filter: var(--ambient-node-base-filter, none); }
+  24.509%, 30.525% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  46.168% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-14 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  44.894% { filter: var(--ambient-node-base-filter, none); }
-  46.83%, 51.671% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  64.257% { filter: var(--ambient-node-base-filter, none); }
+  22.102% { filter: var(--ambient-node-base-filter, none); }
+  24.509%, 30.525% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  46.168% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-15 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  37.322% { filter: var(--ambient-node-base-filter, none); }
-  39.258%, 44.099% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  56.686% { filter: var(--ambient-node-base-filter, none); }
+  26.184% { filter: var(--ambient-node-base-filter, none); }
+  28.59%, 34.607% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  50.25% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-16 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  37.322% { filter: var(--ambient-node-base-filter, none); }
-  39.258%, 44.099% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  56.686% { filter: var(--ambient-node-base-filter, none); }
+  26.184% { filter: var(--ambient-node-base-filter, none); }
+  28.59%, 34.607% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  50.25% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-17 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  50.461% { filter: var(--ambient-node-base-filter, none); }
-  52.398%, 57.239% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  69.825% { filter: var(--ambient-node-base-filter, none); }
+  26.184% { filter: var(--ambient-node-base-filter, none); }
+  28.59%, 34.607% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  50.25% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-18 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  45.713% { filter: var(--ambient-node-base-filter, none); }
-  47.649%, 52.49% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  65.077% { filter: var(--ambient-node-base-filter, none); }
+  38.433% { filter: var(--ambient-node-base-filter, none); }
+  40.839%, 46.856% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  62.498% { filter: var(--ambient-node-base-filter, none); }
 }
 @keyframes archify-relay-node-19 { 
   0%, 100% { filter: var(--ambient-node-base-filter, none); }
-  50.461% { filter: var(--ambient-node-base-filter, none); }
-  52.398%, 57.239% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
-  69.825% { filter: var(--ambient-node-base-filter, none); }
+  32.531% { filter: var(--ambient-node-base-filter, none); }
+  34.937%, 40.954% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  56.597% { filter: var(--ambient-node-base-filter, none); }
+}
+@keyframes archify-relay-node-20 { 
+  0%, 100% { filter: var(--ambient-node-base-filter, none); }
+  38.433% { filter: var(--ambient-node-base-filter, none); }
+  40.839%, 46.856% { filter: var(--ambient-node-base-filter,) drop-shadow(0 0 10px var(--arrow-emphasis)); }
+  62.498% { filter: var(--ambient-node-base-filter, none); }
 }
 svg[data-node-ui] [data-node-id] &gt; rect:not(.c-mask) { stroke-width: 1.25px; }
 :is([data-theme="dark"] svg[data-node-ui], svg[data-node-ui][data-theme="dark"]) [data-node-id] &gt; rect:not(.c-mask).c-frontend { fill: color-mix(in srgb, var(--frontend-stroke) 13%, var(--mask)); stroke: color-mix(in srgb, var(--frontend-stroke) 72%, var(--mask)); }
@@ -1248,8 +1265,8 @@ opened. The complete license is preserved in
           <path data-edge-from="app" data-edge-to="caddy" data-edge-label="1 upload, 4 reel request (HTTPS)" data-edge-key="0" data-composition-points="132,86;132,270" data-composition-crossover="halo" data-composition-independent="true" d="M 132 86 L 132 270" class="a-emphasis" data-animate="edge" style="--step: 0;" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:1">
-          <path data-graph-role="automatic-crossover-underlay" d="M 182 298 L 472 298" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8010" data-edge-key="1" data-composition-points="182,298;472,298" data-composition-crossover="halo" data-composition-independent="true" d="M 182 298 L 472 298" class="a-emphasis" data-animate="edge" style="--step: 1;" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
+          <path data-graph-role="automatic-crossover-underlay" d="M 182 305 L 472 305" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8010" data-edge-key="1" data-composition-points="182,305;472,305" data-composition-crossover="halo" data-composition-independent="true" d="M 182 305 L 472 305" class="a-emphasis" data-animate="edge" style="--step: 1;" stroke-width="1.8" marker-end="url(#arrowhead-emphasis)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:2">
           <path data-graph-role="automatic-crossover-underlay" d="M 107 326 L 107 670" fill="none" stroke="var(--mask)" stroke-width="5.8" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -1313,11 +1330,11 @@ opened. The complete license is preserved in
         </g>
         <g data-graph-role="automatic-crossover" style="--step:17">
           <path data-graph-role="automatic-crossover-underlay" d="M 552 270 L 552 206" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="api" data-edge-to="postiz" data-edge-label="10 post reel" data-edge-key="17" data-composition-points="552,270;552,206" data-composition-crossover="halo" data-composition-independent="true" d="M 552 270 L 552 206" class="a-dashed" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-edge-from="api" data-edge-to="postiz" data-edge-label="10 post reel" data-edge-key="17" data-composition-points="552,270;552,206" data-composition-crossover="halo" data-composition-independent="true" d="M 552 270 L 552 206" class="a-default" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:18">
           <path data-graph-role="automatic-crossover-underlay" d="M 632 178 L 832 178" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
-          <path data-edge-from="postiz" data-edge-to="telegram" data-edge-label="publish" data-edge-key="18" data-composition-points="632,178;832,178" data-composition-crossover="halo" data-composition-independent="true" d="M 632 178 L 832 178" class="a-dashed" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+          <path data-edge-from="postiz" data-edge-to="telegram" data-edge-label="publish via bot" data-edge-key="18" data-composition-points="632,178;832,178" data-composition-crossover="halo" data-composition-independent="true" d="M 632 178 L 832 178" class="a-default" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead)"/>
         </g>
         <g data-graph-role="automatic-crossover" style="--step:19">
           <path data-graph-role="automatic-crossover-underlay" d="M 552 800 L 552 726" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
@@ -1328,6 +1345,10 @@ opened. The complete license is preserved in
           <path data-edge-from="nbagent" data-edge-to="nudgebee" data-edge-label="events, wss 443" data-edge-key="20" data-composition-points="632,828;832,828" data-composition-crossover="halo" data-composition-independent="true" d="M 632 828 L 832 828" class="a-security" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
         </g>
         <path data-edge-from="nudgebee" data-edge-to="flagsmith" data-edge-label="ml_lite_mode ON" data-edge-key="21" data-composition-points="992,828;1044,828;1044,287;992,287" d="M 992 828 L 1036 828 Q 1044 828 1044 820 L 1044 295 Q 1044 287 1036 287 L 992 287" class="a-security" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead-security)"/>
+        <g data-graph-role="automatic-crossover" style="--step:22">
+          <path data-graph-role="automatic-crossover-underlay" d="M 386 206 L 386 278 Q 386 286 394 286 L 472 286" fill="none" stroke="var(--mask)" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" pointer-events="none"/>
+          <path data-edge-from="facet" data-edge-to="api" data-edge-label="3 photo scores" data-edge-key="22" data-composition-points="386,206;386,286;472,286" data-composition-crossover="halo" data-composition-independent="true" d="M 386 206 L 386 278 Q 386 286 394 286 L 472 286" class="a-dashed" data-animate="edge" style="--step: 12;" stroke-width="1.5" marker-end="url(#arrowhead-dashed)"/>
+        </g>
 
         <!-- Components -->
         <g id="node-app" data-node-id="app" data-node-label="Memories Android app" tabindex="0" role="button" aria-label="Focus Memories Android app, Flutter fork of Immich app, Phone (Android)" aria-pressed="false" data-node-kind="frontend" data-node-sublabel="Flutter fork of Immich app" data-node-context="Phone (Android)">
@@ -1347,7 +1368,7 @@ opened. The complete license is preserved in
         <g id="node-caddy" data-node-id="caddy" data-node-label="Caddy :443" tabindex="0" role="button" aria-label="Focus Caddy :443, Let's Encrypt TLS, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="security" data-node-sublabel="Let's Encrypt TLS" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
           <title>Caddy :443 · Let's Encrypt TLS · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
           <rect x="32" y="270" width="150" height="56" rx="8" class="c-mask"/>
-          <rect x="32" y="270" width="150" height="56" rx="8" class="c-security" data-animate="node" style="--step: 1; --flow-node-name: archify-relay-node-3;" stroke-width="1.5"/>
+          <rect x="32" y="270" width="150" height="56" rx="8" class="c-security" data-animate="node" style="--step: 1; --flow-node-name: archify-relay-node-4;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="security" class="semantic-sigil s-security" transform="translate(38 276) scale(0.6875)">
             <path d="M8 2.2 13 4v3.5c0 3.1-1.8 5.4-5 6.5-3.2-1.1-5-3.4-5-6.5V4Z"/>
             <path d="m5.8 8 1.5 1.5 3-3"/>
@@ -1359,7 +1380,7 @@ opened. The complete license is preserved in
         <g id="node-immich" data-node-id="immich" data-node-label="Immich server v3.4.2" tabindex="0" role="button" aria-label="Focus Immich server v3.4.2, :2283 REST, albums, thumbnails, people, smart search, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":2283 REST, albums, thumbnails, people, smart search" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
           <title>Immich server v3.4.2 · :2283 REST, albums, thumbnails, people, smart search · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="32" y="670" width="340" height="56" rx="8" class="c-mask"/>
-          <rect x="32" y="670" width="340" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 3; --flow-node-name: archify-relay-node-4;" stroke-width="1.5"/>
+          <rect x="32" y="670" width="340" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 3; --flow-node-name: archify-relay-node-5;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(38 676) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1370,7 +1391,7 @@ opened. The complete license is preserved in
         <g id="node-pg" data-node-id="pg" data-node-label="Postgres 14" tabindex="0" role="button" aria-label="Focus Postgres 14, VectorChord, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="VectorChord" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
           <title>Postgres 14 · VectorChord · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="32" y="800" width="105" height="56" rx="8" class="c-mask"/>
-          <rect x="32" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 4; --flow-node-name: archify-relay-node-11;" stroke-width="1.5"/>
+          <rect x="32" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 4; --flow-node-name: archify-relay-node-15;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(38 806) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
@@ -1382,7 +1403,7 @@ opened. The complete license is preserved in
         <g id="node-valkey" data-node-id="valkey" data-node-label="Valkey" tabindex="0" role="button" aria-label="Focus Valkey, job queues, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="messagebus" data-node-sublabel="job queues" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
           <title>Valkey · job queues · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="149" y="800" width="105" height="56" rx="8" class="c-mask"/>
-          <rect x="149" y="800" width="105" height="56" rx="8" class="c-messagebus" data-animate="node" style="--step: 5; --flow-node-name: archify-relay-node-12;" stroke-width="1.5"/>
+          <rect x="149" y="800" width="105" height="56" rx="8" class="c-messagebus" data-animate="node" style="--step: 5; --flow-node-name: archify-relay-node-16;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="messagebus" class="semantic-sigil s-messagebus" transform="translate(155 806) scale(0.6875)">
             <path d="M2.5 4.5h11M2.5 8h11M2.5 11.5h11"/>
             <circle cx="5" cy="4.5" r="1" class="sigil-fill"/>
@@ -1396,7 +1417,7 @@ opened. The complete license is preserved in
         <g id="node-library" data-node-id="library" data-node-label="Media files" tabindex="0" role="button" aria-label="Focus Media files, Premium SSD, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich" aria-pressed="false" data-node-kind="database" data-node-sublabel="Premium SSD" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich">
           <title>Media files · Premium SSD · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › docker compose /opt/immich</title>
           <rect x="267" y="800" width="105" height="56" rx="8" class="c-mask"/>
-          <rect x="267" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 6; --flow-node-name: archify-relay-node-13;" stroke-width="1.5"/>
+          <rect x="267" y="800" width="105" height="56" rx="8" class="c-database" data-animate="node" style="--step: 6; --flow-node-name: archify-relay-node-17;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(273 806) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
@@ -1408,7 +1429,7 @@ opened. The complete license is preserved in
         <g id="node-ml" data-node-id="ml" data-node-label="Immich ML (k3s)" tabindex="0" role="button" aria-label="Focus Immich ML (k3s), NodePort 30003, CLIP, faces, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node" aria-pressed="false" data-node-kind="backend" data-node-sublabel="NodePort 30003, CLIP, faces" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node">
           <title>Immich ML (k3s) · NodePort 30003, CLIP, faces · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › k3s single node</title>
           <rect x="472" y="670" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="472" y="670" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 7; --flow-node-name: archify-relay-node-7;" stroke-width="1.5"/>
+          <rect x="472" y="670" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 7; --flow-node-name: archify-relay-node-8;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 676) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1432,7 +1453,7 @@ opened. The complete license is preserved in
         <g id="node-api" data-node-id="api" data-node-label="Director API" tabindex="0" role="button" aria-label="Focus Director API, :8010, reels, EDL, join, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel=":8010, reels, EDL, join" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
           <title>Director API · :8010, reels, EDL, join · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
           <rect x="472" y="270" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="472" y="270" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 2; --flow-node-name: archify-relay-node-9;" stroke-width="1.5"/>
+          <rect x="472" y="270" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 2; --flow-node-name: archify-relay-node-10;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 276) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1454,7 +1475,7 @@ opened. The complete license is preserved in
         <g id="node-director" data-node-id="director" data-node-label="Agentic director" tabindex="0" role="button" aria-label="Focus Agentic director, tool loop, grammar, QA, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel="tool loop, grammar, QA" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
           <title>Agentic director · tool loop, grammar, QA · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
           <rect x="472" y="400" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="472" y="400" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-15;" stroke-width="1.5"/>
+          <rect x="472" y="400" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-13;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 406) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1465,7 +1486,7 @@ opened. The complete license is preserved in
         <g id="node-render" data-node-id="render" data-node-label="ffmpeg renderer" tabindex="0" role="button" aria-label="Focus ffmpeg renderer, x264, parallel segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="backend" data-node-sublabel="x264, parallel segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
           <title>ffmpeg renderer · x264, parallel segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
           <rect x="252" y="400" width="150" height="56" rx="8" class="c-mask"/>
-          <rect x="252" y="400" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-18;" stroke-width="1.5"/>
+          <rect x="252" y="400" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-19;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(258 406) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1476,7 +1497,7 @@ opened. The complete license is preserved in
         <g id="node-sqlite" data-node-id="sqlite" data-node-label="SQLite + DATA_DIR" tabindex="0" role="button" aria-label="Focus SQLite + DATA_DIR, analysis, segments, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container" aria-pressed="false" data-node-kind="database" data-node-sublabel="analysis, segments" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container">
           <title>SQLite + DATA_DIR · analysis, segments · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443) › Memories director container</title>
           <rect x="252" y="530" width="150" height="56" rx="8" class="c-mask"/>
-          <rect x="252" y="530" width="150" height="56" rx="8" class="c-database" data-animate="node" style="--step: 10; --flow-node-name: archify-relay-node-6;" stroke-width="1.5"/>
+          <rect x="252" y="530" width="150" height="56" rx="8" class="c-database" data-animate="node" style="--step: 10; --flow-node-name: archify-relay-node-7;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="database" class="semantic-sigil s-database" transform="translate(258 536) scale(0.6875)">
             <ellipse cx="8" cy="4" rx="5" ry="2"/>
             <path d="M3 4v8c0 1.1 2.2 2 5 2s5-.9 5-2V4M3 8c0 1.1 2.2 2 5 2s5-.9 5-2"/>
@@ -1485,21 +1506,21 @@ opened. The complete license is preserved in
         <text x="327" y="572" class="t-muted" font-size="10.5" text-anchor="middle">analysis, segments</text>
         </g>
 
-        <g id="node-facet" data-node-id="facet" data-node-label="Facet (in progress)" tabindex="0" role="button" aria-label="Focus Facet (in progress), MIT scoring, planned, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="MIT scoring, planned" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
-          <title>Facet (in progress) · MIT scoring, planned · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
+        <g id="node-facet" data-node-id="facet" data-node-label="Facet container" tabindex="0" role="button" aria-label="Focus Facet container, MIT photo scoring, CPU, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="MIT photo scoring, CPU" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
+          <title>Facet container · MIT photo scoring, CPU · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
           <rect x="252" y="150" width="150" height="56" rx="8" class="c-mask"/>
-          <rect x="252" y="150" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12;" stroke-width="1.5"/>
+          <rect x="252" y="150" width="150" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-3;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(258 156) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
-          <text data-node-label="" x="327" y="176" class="t-primary" font-size="11" font-weight="600" text-anchor="middle">Facet (in progress)</text>
-        <text x="327" y="192" class="t-muted" font-size="10.5" text-anchor="middle">MIT scoring, planned</text>
+          <text data-node-label="" x="327" y="176" class="t-primary" font-size="11.3" font-weight="600" text-anchor="middle">Facet container</text>
+        <text x="327" y="192" class="t-muted" font-size="10.5" text-anchor="middle">MIT photo scoring, CPU</text>
         </g>
 
         <g id="node-postiz" data-node-id="postiz" data-node-label="Postiz :4007" tabindex="0" role="button" aria-label="Focus Postiz :4007, Postgres, Redis, Temporal, Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)" aria-pressed="false" data-node-kind="backend" data-node-sublabel="Postgres, Redis, Temporal" data-node-context="Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)">
           <title>Postiz :4007 · Postgres, Redis, Temporal · Azure VM, centralindia: Standard_D16as_v5, Ubuntu 24.04 (NSG inbound 22/80/443)</title>
           <rect x="472" y="150" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="472" y="150" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-16;" stroke-width="1.5"/>
+          <rect x="472" y="150" width="160" height="56" rx="8" class="c-backend" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-14;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="backend" class="semantic-sigil s-backend" transform="translate(478 156) scale(0.6875)">
             <path d="M6 3 3 8l3 5M10 3l3 5-3 5"/>
           </g>
@@ -1510,7 +1531,7 @@ opened. The complete license is preserved in
         <g id="node-flagsmith" data-node-id="flagsmith" data-node-label="Flagsmith" tabindex="0" role="button" aria-label="Focus Flagsmith, flags, experiment, health, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="flags, experiment, health" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)">
           <title>Flagsmith · flags, experiment, health · Third-party SaaS (HTTPS 443) · SPONSOR</title>
           <rect x="832" y="262" width="160" height="50" rx="8" class="c-mask"/>
-          <rect x="832" y="262" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-10;" stroke-width="1.5"/>
+          <rect x="832" y="262" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-12;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 268) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -1522,7 +1543,7 @@ opened. The complete license is preserved in
         <g id="node-nudgebee" data-node-id="nudgebee" data-node-label="NudgeBee cloud" tabindex="0" role="button" aria-label="Focus NudgeBee cloud, RCA, workflow, approval, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="RCA, workflow, approval" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443)">
           <title>NudgeBee cloud · RCA, workflow, approval · Third-party SaaS (HTTPS 443) · SPONSOR</title>
           <rect x="832" y="800" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="832" y="800" width="160" height="56" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-8;" stroke-width="1.5"/>
+          <rect x="832" y="800" width="160" height="56" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-9;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 806) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -1531,22 +1552,22 @@ opened. The complete license is preserved in
         <text x="912" y="845.5625" class="t-cloud" font-size="7" text-anchor="middle">SPONSOR</text>
         </g>
 
-        <g id="node-telegram" data-node-id="telegram" data-node-label="Telegram channel" tabindex="0" role="button" aria-label="Focus Telegram channel, not connected yet, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="external" data-node-sublabel="not connected yet" data-node-context="Third-party SaaS (HTTPS 443)">
-          <title>Telegram channel · not connected yet · Third-party SaaS (HTTPS 443)</title>
+        <g id="node-telegram" data-node-id="telegram" data-node-label="Telegram channel" tabindex="0" role="button" aria-label="Focus Telegram channel, posting live, Third-party SaaS (HTTPS 443)" aria-pressed="false" data-node-kind="external" data-node-sublabel="posting live" data-node-context="Third-party SaaS (HTTPS 443)">
+          <title>Telegram channel · posting live · Third-party SaaS (HTTPS 443)</title>
           <rect x="832" y="150" width="160" height="56" rx="8" class="c-mask"/>
-          <rect x="832" y="150" width="160" height="56" rx="8" class="c-external" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-19;" stroke-width="1.5"/>
+          <rect x="832" y="150" width="160" height="56" rx="8" class="c-external" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-20;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="external" class="semantic-sigil s-external" transform="translate(838 156) scale(0.6875)">
             <rect x="2.5" y="5" width="8.5" height="8" rx="1.5"/>
             <path d="M8 2.5h5.5V8M13.5 2.5 7.5 8.5"/>
           </g>
           <text data-node-label="" x="912" y="176" class="t-primary" font-size="11.6" font-weight="600" text-anchor="middle">Telegram channel</text>
-        <text x="912" y="192" class="t-muted" font-size="10.5" text-anchor="middle">not connected yet</text>
+        <text x="912" y="192" class="t-muted" font-size="10.5" text-anchor="middle">posting live</text>
         </g>
 
         <g id="node-s_speech" data-node-id="s_speech" data-node-label="Dictate + saaras:v4" tabindex="0" role="button" aria-label="Focus Dictate + saaras:v4, plus Doc AI, mayura, bulbul, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="plus Doc AI, mayura, bulbul" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
           <title>Dictate + saaras:v4 · plus Doc AI, mayura, bulbul · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="346" width="160" height="50" rx="8" class="c-mask"/>
-          <rect x="832" y="346" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 11; --flow-node-name: archify-relay-node-14;" stroke-width="1.5"/>
+          <rect x="832" y="346" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 11; --flow-node-name: archify-relay-node-11;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 352) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -1558,7 +1579,7 @@ opened. The complete license is preserved in
         <g id="node-s_105b" data-node-id="s_105b" data-node-label="sarvam-105b" tabindex="0" role="button" aria-label="Focus sarvam-105b, director, tool calls, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="director, tool calls" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
           <title>sarvam-105b · director, tool calls · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="404" width="160" height="50" rx="8" class="c-mask"/>
-          <rect x="832" y="404" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-17;" stroke-width="1.5"/>
+          <rect x="832" y="404" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 12; --flow-node-name: archify-relay-node-18;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 410) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -1570,7 +1591,7 @@ opened. The complete license is preserved in
         <g id="node-s_gemma" data-node-id="s_gemma" data-node-label="gemma4 (hosted)" tabindex="0" role="button" aria-label="Focus gemma4 (hosted), shot analysis, Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai" aria-pressed="false" data-node-kind="cloud" data-node-sublabel="shot analysis" data-node-tag="SPONSOR" data-node-context="Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai">
           <title>gemma4 (hosted) · shot analysis · Third-party SaaS (HTTPS 443) › Sarvam AI, api.sarvam.ai · SPONSOR</title>
           <rect x="832" y="534" width="160" height="50" rx="8" class="c-mask"/>
-          <rect x="832" y="534" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 9; --flow-node-name: archify-relay-node-5;" stroke-width="1.5"/>
+          <rect x="832" y="534" width="160" height="50" rx="8" class="c-cloud" data-animate="node" style="--step: 9; --flow-node-name: archify-relay-node-6;" stroke-width="1.5"/>
           <g aria-hidden="true" data-semantic-sigil="cloud" class="semantic-sigil s-cloud" transform="translate(838 540) scale(0.6875)">
             <path d="M4.3 12.5h7.3a2.4 2.4 0 0 0 .2-4.8 4 4 0 0 0-7.5-1.3A3.1 3.1 0 0 0 4.3 12.5Z"/>
           </g>
@@ -1585,8 +1606,8 @@ opened. The complete license is preserved in
           <text x="219.8" y="227" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="159.6" lengthAdjust="spacingAndGlyphs" text-anchor="middle">1 upload, 4 reel request (HTTPS)</text>
         </g>
         <g data-edge-from="caddy" data-edge-to="api" data-edge-label="/director/* -&gt; :8010" data-edge-key="1">
-          <rect x="274" y="278" width="106" height="14" rx="3" class="c-mask"/>
-          <text x="327" y="288" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="102" lengthAdjust="spacingAndGlyphs" text-anchor="middle">/director/* -&gt; :8010</text>
+          <rect x="274" y="315" width="106" height="14" rx="3" class="c-mask"/>
+          <text x="327" y="325" class="t-edge-emphasis" font-size="10" font-weight="500" textLength="102" lengthAdjust="spacingAndGlyphs" text-anchor="middle">/director/* -&gt; :8010</text>
         </g>
         <g data-edge-from="caddy" data-edge-to="immich" data-edge-label="/api -&gt; :2283" data-edge-key="2">
           <rect x="28.599999999999994" y="491" width="72.4" height="14" rx="3" class="c-mask"/>
@@ -1650,11 +1671,11 @@ opened. The complete license is preserved in
         </g>
         <g data-edge-from="api" data-edge-to="postiz" data-edge-label="10 post reel" data-edge-key="17">
           <rect x="518.2" y="250" width="67.6" height="14" rx="3" class="c-mask"/>
-          <text x="552" y="260" class="t-edge-dashed" font-size="10" font-weight="500" textLength="63.599999999999994" lengthAdjust="spacingAndGlyphs" text-anchor="middle">10 post reel</text>
+          <text x="552" y="260" class="t-edge-default" font-size="10" font-weight="500" textLength="63.599999999999994" lengthAdjust="spacingAndGlyphs" text-anchor="middle">10 post reel</text>
         </g>
-        <g data-edge-from="postiz" data-edge-to="telegram" data-edge-label="publish" data-edge-key="18">
-          <rect x="710.2" y="158" width="43.6" height="14" rx="3" class="c-mask"/>
-          <text x="732" y="168" class="t-edge-dashed" font-size="10" font-weight="500" textLength="39.6" lengthAdjust="spacingAndGlyphs" text-anchor="middle">publish</text>
+        <g data-edge-from="postiz" data-edge-to="telegram" data-edge-label="publish via bot" data-edge-key="18">
+          <rect x="691" y="158" width="82" height="14" rx="3" class="c-mask"/>
+          <text x="732" y="168" class="t-edge-default" font-size="10" font-weight="500" textLength="78" lengthAdjust="spacingAndGlyphs" text-anchor="middle">publish via bot</text>
         </g>
         <g data-edge-from="nbagent" data-edge-to="ml" data-edge-label="watches" data-edge-key="19">
           <rect x="530.2" y="780" width="43.6" height="14" rx="3" class="c-mask"/>
@@ -1667,6 +1688,10 @@ opened. The complete license is preserved in
         <g data-edge-from="nudgebee" data-edge-to="flagsmith" data-edge-label="ml_lite_mode ON" data-edge-key="21">
           <rect x="1003" y="537.5" width="82" height="14" rx="3" class="c-mask"/>
           <text x="1044" y="547.5" class="t-edge-security" font-size="10" font-weight="500" textLength="78" lengthAdjust="spacingAndGlyphs" text-anchor="middle">ml_lite_mode ON</text>
+        </g>
+        <g data-edge-from="facet" data-edge-to="api" data-edge-label="3 photo scores" data-edge-key="22">
+          <rect x="390.4" y="266" width="77.2" height="14" rx="3" class="c-mask"/>
+          <text x="429" y="276" class="t-edge-dashed" font-size="10" font-weight="500" textLength="73.2" lengthAdjust="spacingAndGlyphs" text-anchor="middle">3 photo scores</text>
         </g>
 
         <!-- Boundary labels (foreground masks keep routes out of titles) -->

@@ -79,10 +79,12 @@ def analyse_music(path: str, drop_hint: float) -> dict:
     tempo, frames = librosa.beat.beat_track(y=y, sr=sr, units="frames")
     bt = librosa.frames_to_time(frames, sr=sr)
     bpm = float(np.atleast_1d(tempo)[0])
-    # regularise to a strict grid anchored on detected beats (phone-free, so the grid is reliable)
-    period = 60.0 / bpm
-    offs = (bt - bt[0]) % period
-    anchor = bt[0] + float(np.median(np.where(offs > period / 2, offs - period, offs)))
+    # librosa's tempo is quantised (e.g. 123.05 for a 124 BPM track): fit period + phase to the detected beats
+    period0 = 60.0 / bpm
+    k = np.round((bt - bt[0]) / period0)
+    (period, anchor), *_ = np.linalg.lstsq(np.vstack([k, np.ones_like(k)]).T, bt, rcond=None)
+    period, anchor = float(period), float(anchor)
+    bpm = 60.0 / period
     anchor = anchor % period
     grid = [anchor + k * period for k in range(int((dur - anchor) / period) + 1)]
     # drop = biggest RMS jump within +-5 s of the hint, snapped to the grid

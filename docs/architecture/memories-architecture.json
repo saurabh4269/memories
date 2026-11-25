@@ -201,8 +201,8 @@
     {
       "id": "facet",
       "type": "backend",
-      "label": "Facet (in progress)",
-      "sublabel": "MIT scoring, planned",
+      "label": "Facet container",
+      "sublabel": "MIT photo scoring, CPU",
       "pos": [
         252,
         150
@@ -224,7 +224,8 @@
       "size": [
         160,
         56
-      ]
+      ],
+      "explanation": "Self-hosted Postiz v2.26 at postiz.74-225-200-30.sslip.io (Caddy -> 127.0.0.1:4007), with Postgres, Redis and Temporal. Connected to a public Telegram channel through a bot."
     },
     {
       "id": "flagsmith",
@@ -260,7 +261,7 @@
       "id": "telegram",
       "type": "external",
       "label": "Telegram channel",
-      "sublabel": "not connected yet",
+      "sublabel": "posting live",
       "pos": [
         832,
         150
@@ -493,13 +494,13 @@
       "from": "api",
       "to": "postiz",
       "label": "10 post reel",
-      "variant": "dashed"
+      "variant": "default"
     },
     {
       "from": "postiz",
       "to": "telegram",
-      "label": "publish",
-      "variant": "dashed"
+      "label": "publish via bot",
+      "variant": "default"
     },
     {
       "from": "nbagent",
@@ -530,6 +531,12 @@
           287
         ]
       ]
+    },
+    {
+      "from": "facet",
+      "to": "api",
+      "label": "3 photo scores",
+      "variant": "dashed"
     }
   ],
   "cards": [
@@ -539,14 +546,14 @@
       "items": [
         "1 Phone backs up photos and videos to Immich",
         "2 Immich makes thumbnails, runs faces and CLIP in Immich ML",
-        "3 Poller analyses new assets: keyframes, contact sheets, gemma4, team score (Facet scores planned)",
+        "3 Poller analyses new assets: keyframes, contact sheets, gemma4, team score, Facet photo scores",
         "4 User speaks a prompt in the app (POST /director/v1/reels)",
         "5 Dictate turns speech into an intent",
         "6 Flagsmith picks single_shot or agentic, sarvam-105b plans with tools over Immich",
         "7 Code validates the EDL: ids, trims, beat, length",
         "8 Segments render in parallel from originals",
         "9 Two previews return, finals render speculatively",
-        "10 Share via Android share sheet, or Postiz",
+        "10 Share via Android share sheet, or Postiz to Telegram",
         "11 reel_shared goes to Flagsmith as the experiment metric"
       ]
     },
@@ -564,7 +571,7 @@
       "title": "Sync vs async",
       "items": [
         "Solid: request path the user waits on",
-        "Dashed: background or fire-and-forget (ML jobs, poller, Postiz)",
+        "Dashed: background or fire-and-forget (ML jobs, poller, Postiz scores)",
         "Red: ops path from NudgeBee into Flagsmith",
         "No inbound port for NudgeBee: the agent dials out"
       ]

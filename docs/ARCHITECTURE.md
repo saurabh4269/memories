@@ -15,7 +15,7 @@ This page explains how Memories works inside: the parts, the path of one reel re
 | Flagsmith | Cloud | Flags, the `director_strategy` experiment, Feature Health. |
 | NudgeBee | Cloud | Investigation, workflow `memories-ml-surge`, human approval. |
 
-VM: Azure `centralindia`, Ubuntu 24.04, 8 vCPU (AMD), 32 GB, 256 GB Premium SSD. Caddy terminates HTTPS for Immich.
+VM: Azure `centralindia`, Ubuntu 24.04, Standard_D16as_v5 (16 vCPU AMD, 64 GB), 256 GB Premium SSD. It was a D8as_v5 (8 vCPU, 32 GB) when we ran the benchmarks on this page. Caddy terminates HTTPS for Immich.
 
 ### Director modules (`server/src/memories/`)
 
@@ -124,7 +124,7 @@ Live timings and calibration: [`deploy/surge/README.md`](../deploy/surge/README.
 
 ## Speed
 
-Upload is the slowest part for a real family. After that, the work is in seconds. These are the choices that keep it there. All measurements are on the Azure VM (8 vCPU, 32 GB) with ffmpeg 6.1.1 from Ubuntu, on our real hackathon footage: 104 files, 2.91 GB, 81 photos and 23 videos, all 1080p HEVC phone clips at about 18 Mbps.
+Upload is the slowest part for a real family. After that, the work is in seconds. These are the choices that keep it there. All measurements were taken on the Azure VM when it was a D8as_v5 (8 vCPU, 32 GB; it is now a D16as_v5 with 16 vCPU and 64 GB) with ffmpeg 6.1.1 from Ubuntu, on our real hackathon footage: 104 files, 2.91 GB, 81 photos and 23 videos, all 1080p HEVC phone clips at about 18 Mbps.
 
 | Optimisation | What we do | Measured |
 |---|---|---|
@@ -132,7 +132,7 @@ Upload is the slowest part for a real family. After that, the work is in seconds
 | Contact sheets for videos | 4 keyframes at 10%, 35%, 60% and 85% of the video go into one 2x2 image, max 768 px, each frame labelled with its time. One video costs one image slot in a 6-image gemma4 call, and the model returns the best time window. | gemma4, 6 images per call: 5.3 to 6.0 s. <!-- TODO: measured analysis time for the 104-asset album --> |
 | Incremental analysis | A poller checks watched albums every 10 s and analyses only new assets. Results are cached in SQLite and Immich metadata. A reel request only analyses what is still missing, with a 45 s budget. | <!-- TODO: measured reel request time with a fully analysed album vs a cold album --> TODO |
 | Input seeking | `-ss` before `-i`, so ffmpeg jumps to the clip and never decodes the whole file. We read originals over HTTP from Immich (`/api/assets/{id}/original`) with range requests, so we do not wait for Immich transcodes. | 4 keyframes over HTTP vs local file: 0.78 s vs 0.70 s. 3 s clip render over HTTP vs local: 2.01 s vs 1.95 s. |
-| Parallel segments | Each clip renders as its own short segment in a thread pool, then one join adds transitions and music. Segments are cached by a hash of their inputs, so an edit re-renders only what changed. | One 3 s real clip to 1080x1920: 2.07 s (veryfast), 1.56 s (ultrafast). 4 in parallel: 6.6 s wall (0.60 clips/s). 8 in parallel: 13.1 s (0.61 clips/s), so 4 already fill the 8 vCPUs. The pool defaults to the CPU count; set `RENDER_WORKERS=4` on this VM. |
+| Parallel segments | Each clip renders as its own short segment in a thread pool, then one join adds transitions and music. Segments are cached by a hash of their inputs, so an edit re-renders only what changed. | One 3 s real clip to 1080x1920: 2.07 s (veryfast), 1.56 s (ultrafast). 4 in parallel: 6.6 s wall (0.60 clips/s). 8 in parallel: 13.1 s (0.61 clips/s), so 4 already fill the 8 vCPUs. The pool defaults to the CPU count; we set `RENDER_WORKERS=4` on the 8 vCPU VM (not re-measured on 16 vCPU). |
 | Cheap previews | Previews render at 540x960, 24 fps, with ultrafast segments. | <!-- TODO: measured preview render time per cut --> TODO |
 | Speculative final render | Both finals (1080x1920, 30 fps) start in the background as soon as the previews are ready, before anyone picks a cut. | <!-- TODO: measured final render time per cut, and wait time after "Use this one" --> TODO |
 | Stream-copy join for hard cuts | When transitions are `cut` (for example through a flag), segments are joined with the concat demuxer and `-c copy`. | Joining 8 segments with `-c copy` plus music (24 s reel): 0.86 s. |

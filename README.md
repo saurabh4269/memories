@@ -25,6 +25,7 @@ The same thing happens at weddings, and at events like this hackathon.
 - Director studio (small web page for trying a reel): https://memories-3870f5.centralindia.cloudapp.azure.com/director/studio
 - Director health check: https://memories-3870f5.centralindia.cloudapp.azure.com/director/health
 - Immich server (the app talks to this): https://memories-3870f5.centralindia.cloudapp.azure.com
+- Telegram channel where Memories posts reels: https://t.me/memories_family_demo_4336
 
 The VM shuts down every night at 02:00 IST to save money, so these links can be down at night.
 
@@ -58,12 +59,12 @@ We mark each part honestly. "Built" means the code is in this repo and we ran it
 | Team detection (recurring faces + activity + CLIP search) for hackathon albums | Built | [`team.py`](server/src/memories/team.py) |
 | ffmpeg renderer: parallel segments, segment cache, captions in Indian scripts | Built | [`render.py`](server/src/memories/render.py), [`captions.py`](server/src/memories/captions.py) |
 | Voice prompt to intent (Dictate, saaras:v4 fallback), invite card reading, voiceover, translation | Built (server API) | [`extras_api.py`](server/src/memories/extras_api.py), [`dictate.py`](server/src/memories/dictate.py), [`invite.py`](server/src/memories/invite.py), [`voiceover.py`](server/src/memories/voiceover.py) |
-| Shot coach cards | Built (server API) | [`coach.py`](server/src/memories/coach.py) |
-| Editor API: EDL for live preview, media proxy, swap or trim clips and re-render, alternatives | Built | [`editor_api.py`](server/src/memories/editor_api.py) |
+| Shot coach cards, in Hindi for beta members (Flagsmith `shot_coach` segment) | Built (server API, live) | [`coach.py`](server/src/memories/coach.py) |
+| Editor API: EDL for live preview, media proxy, swap or trim clips and re-render, alternatives (`/edl`, `/edit`, `/alternatives`, `/otio`, `/v1/assets/*`) | Built (live) | [`editor_api.py`](server/src/memories/editor_api.py) |
 | OpenTimelineIO export of a cut | Built | [`otio_export.py`](server/src/memories/otio_export.py) |
-| Event join: invite code, QR page, redeem into an Immich user and album | Built | [`join_api.py`](server/src/memories/join_api.py) |
-| Post to socials through a self-hosted Postiz | In progress. The bridge and Postiz run on the VM. No channel is connected yet, so nothing is posted. | [`postiz_api.py`](server/src/memories/postiz_api.py) |
-| Facet photo scores as an extra signal for the director | In progress. The director reads Facet scores if they exist. The Facet container is not deployed yet. | [`pipeline.py`](server/src/memories/pipeline.py), [`grammar.py`](server/src/memories/grammar.py) |
+| Event join: invite code, QR page, redeem into an Immich user and album (`/v1/join/*`) | Built (live) | [`join_api.py`](server/src/memories/join_api.py) |
+| Post a finished reel to a public Telegram channel through a self-hosted Postiz | Built. A real reel went end to end: `POST /director/v1/reels/{id}/post`, then Postiz, then the [Telegram channel](https://t.me/memories_family_demo_4336) through a bot. | [`postiz_api.py`](server/src/memories/postiz_api.py) |
+| Facet photo scores (aesthetics, sharpness, blinks, duplicates) as an extra signal for the director | Built. The Facet container runs on the VM and the director reads its scores per album. Scores are not loaded for the demo album yet. | [`facet_scores.py`](server/src/memories/facet_scores.py), [`facet_api.py`](server/src/memories/facet_api.py), [`grammar.py`](server/src/memories/grammar.py) |
 | Voiceover mixed into the rendered reel | Not built. Voiceover is a separate audio file today. | |
 
 **Memories app (fork of the Immich Flutter app, [`app/`](app/))**
@@ -104,7 +105,7 @@ All Sarvam calls go through one client with a rate limiter per model, retries wi
 |---|---|---|---|
 | `director_strategy` experiment | A real product question: does the agentic director make reels people share more? Control `single_shot`, variation `agentic`. Bucketed by member id. The metric is `reel_shared`, sent when someone taps Share. | [`flags.py`](server/src/memories/flags.py) `director_strategy`, `track`; [`api.py`](server/src/memories/api.py) `POST /v1/reels/{id}/shared` | Experiments PASS on the free plan (flag, metric, experiment, SDK exposures and events). `get_experiment_flag` about 350 ms. Exposures only appear after `start`. <!-- TODO: exposure and reel_shared counts from the demo experiment --> |
 | `elder_mode` segment | A segment on traits `language = hi-IN` AND `role = elder` gets a JSON override (bigger UI, Hindi voice). | Flagsmith segment `elders_hindi` <!-- TODO: link the Flutter code that reads elder_mode --> | PASS on the Edge API and Python SDK: elder + hi-IN got the override, every other combination got the default. Live on edge about 3 s after the change. |
-| `shot_coach` staged rollout | Turns the shot coach on and sets `max_cards`. The coach also turns itself off when `ml_lite_mode` says so. | [`coach.py`](server/src/memories/coach.py) `coach_cards` | <!-- TODO: segment beta_families + % rollout configured and screenshot --> Flag and value read by the coach. Staged rollout: TODO. |
+| `shot_coach` staged rollout | Turns the shot coach on and sets `max_cards`. The coach also turns itself off when `ml_lite_mode` says so. | [`coach.py`](server/src/memories/coach.py) `coach_cards` | Flag and value read by the coach. Live: a beta-member segment gets Hindi coach cards, other members get none. <!-- TODO: % rollout split and screenshot --> |
 | `ml_lite_mode` kill switch | NudgeBee turns it on after a human approves. Memories then turns off the shot coach, sends 3 images per vision call instead of 6, and uses cached analysis instead of live smart search. | [`flags.py`](server/src/memories/flags.py) `ml_lite`; [`coach.py`](server/src/memories/coach.py); [`api.py`](server/src/memories/api.py) analyse | Flipped by the NudgeBee workflow in the live run. Approval to flag visible on the Edge API: 6 s. |
 | Feature Health | NudgeBee marks `shot_coach` UNHEALTHY with its root-cause text, so the Flagsmith dashboard shows why the feature is degraded. | [`memories-ml-surge.workflow.yaml`](deploy/nudgebee/memories-ml-surge.workflow.yaml) task `mark_shot_coach_unhealthy` | Webhook call PASS in 0.6 s. In the live loop, `shot_coach` went UNHEALTHY about 2 s after approval and back to healthy on restore. |
 | `render_profile` and `peak_mode` remote config | JSON values that change render settings with no redeploy. `peak_mode` wins over `render_profile`. | [`flags.py`](server/src/memories/flags.py) `render_overrides`; [`render.py`](server/src/memories/render.py) `profile_from` | <!-- TODO: verify peak_mode JSON keys match profile_from (flag holds res/fps/transition, code reads transitions and final/preview) --> TODO |
@@ -146,8 +147,8 @@ Calibration: under a 100-photo burst the ML working set is about 0.9 GiB (anonym
 
 How to read it:
 - **Boxes inside boxes are deployment boundaries.** The phone, the Azure VM (Standard_D16as_v5, centralindia), and the outside services. Inside the VM: docker compose for Immich, single-node k3s for Immich ML and the NudgeBee agent, and the director container. Only ports 22, 80 and 443 are open on the VM. Caddy is the only public entry point.
-- **Numbers on the arrows follow one reel:** 1 the phone backs up photos and videos to Immich. 2 Immich makes thumbnails and runs faces and CLIP in Immich ML. 3 the poller analyses new assets with gemma4 (6 images per call). 4 the member asks for a reel. 5 Dictate turns a spoken prompt into an intent. 6 Flagsmith picks the director strategy and sarvam-105b plans with tools over Immich. 7 our code validates the edit list (EDL). 8 segments render in parallel from the originals. 9 two previews come back and the finals render in the background. 10 share through the Android share sheet, or Postiz (not connected yet). 11 `reel_shared` goes to Flagsmith as the experiment metric.
-- **Solid arrows** are calls someone waits on. **Dashed arrows** are background work (Immich ML jobs, the poller, Postiz). **Red arrows** are the ops path: the NudgeBee agent dials out over wss 443, and after a human approves, NudgeBee turns on `ml_lite_mode` in Flagsmith.
+- **Numbers on the arrows follow one reel:** 1 the phone backs up photos and videos to Immich. 2 Immich makes thumbnails and runs faces and CLIP in Immich ML. 3 the poller analyses new assets with gemma4 (6 images per call), and Facet adds photo scores. 4 the member asks for a reel. 5 Dictate turns a spoken prompt into an intent. 6 Flagsmith picks the director strategy and sarvam-105b plans with tools over Immich. 7 our code validates the edit list (EDL). 8 segments render in parallel from the originals. 9 two previews come back and the finals render in the background. 10 share through the Android share sheet, or post through Postiz to the Telegram channel. 11 `reel_shared` goes to Flagsmith as the experiment metric.
+- **Solid arrows** are calls someone waits on. **Dashed arrows** are background work (Immich ML jobs, the poller, Facet scores). **Red arrows** are the ops path: the NudgeBee agent dials out over wss 443, and after a human approves, NudgeBee turns on `ml_lite_mode` in Flagsmith.
 - **The three sponsor tools are marked SPONSOR.** Sarvam AI is split into the models doing the work.
 
 The ops loop when a family uploads at once:
@@ -176,13 +177,14 @@ Memories stands on years of other people's work. We did not change the Immich se
 | [Flagsmith Python SDK](https://github.com/Flagsmith/flagsmith-python-client) | Flags, experiment, events | See upstream |
 | [k3s](https://github.com/k3s-io/k3s) | Single-node Kubernetes for Immich ML | Apache-2.0 |
 | [OpenTimelineIO](https://github.com/AcademySoftwareFoundation/OpenTimelineIO) | Export a cut as a timeline other editors can open | Apache-2.0 |
-| [Postiz](https://github.com/gitroomhq/postiz-app) (self-hosted, not modified) | Posting reels to social channels (in progress) | AGPL-3.0 |
-| [Facet](https://github.com/ncoevoet/facet) | Photo scoring and culling as an extra signal for the director (in progress, not deployed yet) | MIT |
+| [Postiz](https://github.com/gitroomhq/postiz-app) (self-hosted, not modified) | Posting reels to our Telegram channel | AGPL-3.0 |
+| [Facet](https://github.com/ncoevoet/facet) | Photo scoring (runs as its own container, not modified) as an extra signal for the director | MIT |
 | [LibreCamera](https://github.com/iakmds/librecamera) | Camera lifecycle, zoom and focus code adapted for the Memories camera (in progress) | GPL-3.0-or-later |
 | [qrcode](https://github.com/lincolnloop/python-qrcode) | QR codes for event join | BSD-3-Clause |
 | [Caddy](https://github.com/caddyserver/caddy) | HTTPS reverse proxy | Apache-2.0 |
 | [Noto fonts](https://github.com/notofonts) | Caption fonts (Latin, Devanagari) | SIL OFL 1.1 |
 | Music by Kevin MacLeod ([incompetech.com](https://incompetech.com)) | Reel soundtracks, attribution per track in [`server/assets/music/CREDITS.md`](server/assets/music/CREDITS.md) | CC BY 4.0 |
+| "Night Build" track | A dev-vibe track for hackathon reels. **AI-generated** with ElevenLabs Music, not composed by a person. See [`CREDITS.md`](server/assets/music/CREDITS.md). | Generated on our ElevenLabs account |
 | Wikimedia Commons photos | Test photos for the surge script only | CC0 or public domain |
 | [Archify](https://github.com/tt-a1i/archify) | The architecture diagrams in this README (tooling only, not part of the app) | Apache-2.0 |
 

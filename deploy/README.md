@@ -17,7 +17,7 @@
 
 Why ML is in Kubernetes: it is the part that struggles under a Diwali-night upload burst (face detection + CLIP run per photo), so it is the part NudgeBee watches.
 
-VM (`MEMORIES_VM_NAME` in `.vm.env`): Azure centralindia, Ubuntu 24.04, 8 vCPU / 32 GB, private IP 10.10.0.4. Only this VM was touched; NSG unchanged (6443 not exposed).
+VM (`MEMORIES_VM_NAME` in `.vm.env`): Azure centralindia, Ubuntu 24.04, Standard_D16as_v5 (16 vCPU / 64 GB), private IP 10.10.0.4. The surge calibration and benchmarks were measured when it was a D8as_v5 (8 vCPU / 32 GB). Only this VM was touched; NSG unchanged (6443 not exposed).
 
 ## Files
 | Path | What |

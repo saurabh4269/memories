@@ -98,5 +98,31 @@
     "source_url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Sovereign.mp3",
     "attribution": "\"Sovereign\" Kevin MacLeod (incompetech.com). Licensed under Creative Commons: By Attribution 4.0 License http://creativecommons.org/licenses/by/4.0/",
     "note": "Trimmed to first 60 s with a 2 s fade."
+  },
+  {
+    "file": "dev_synthwave.mp3",
+    "title": "Night Build (dark synthwave)",
+    "mood": "dev",
+    "moods": [
+      "dev",
+      "hacker",
+      "recap",
+      "intense",
+      "energetic",
+      "hype"
+    ],
+    "tags": [
+      "hacker",
+      "dev",
+      "recap",
+      "intense"
+    ],
+    "bpm": 124.0,
+    "beat_offset": 0.531,
+    "drop_s": 21.5,
+    "licence": "AI-generated with ElevenLabs Music (user's account)",
+    "source": "ElevenLabs music_v1",
+    "attribution": "AI-generated music (ElevenLabs Music, model music_v1)",
+    "note": "34 s instrumental: intro 0-7 s, build 7-15 s, riser 15-22 s, hard drop ~21.5 s, outro. BPM/offset from librosa beat fit."
   }
 ]
